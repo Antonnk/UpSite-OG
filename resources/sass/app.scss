@@ -1,0 +1,44 @@
+
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/preflight";
+ */
+@tailwind preflight;
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
+
+.btn {
+	@apply border-4 border-blue font-semibold inline-flex no-underline px-4 py-3 rounded-full text-blue cursor-pointer;
+	background: rgba(255, 255, 255, 0.15);
+}
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
+
+#landing-gradinat-box {
+	background: -webkit-linear-gradient(#FBD800 0%, rgba(251, 216, 0, 0) 100%);
+	background: -o-linear-gradient(#FBD800 0%, rgba(251, 216, 0, 0) 100%);
+	background: linear-gradient(#FBD800 0%, rgba(251, 216, 0, 0) 100%);
+}
+
