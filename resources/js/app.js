@@ -14,8 +14,7 @@ Vue.use(Vuex)
 import store from './store'
 
 Vue.component('cl-image', require('./components/CloudImage.vue'))
-Vue.component('floaty-image', require('./components/FloatyImage.vue'))
-Vue.component('site-builder', require('./site-builder/index.vue'));
+Vue.component('site-builder', require('./site-builder/index.vue'))
 
 const app = new Vue({
     el: '#root',

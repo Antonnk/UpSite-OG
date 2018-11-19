@@ -1,6 +1,20 @@
 <template>
 	<main class="bg-brown-lighter h-screen flex flex-col">
-		<button class="bg-yellow fixed m-1 m-3 p-2 pin-b pin-r rounded-full" @click="toggleMode">toggle</button>
+		
+		
+		<!-- <div class="fixed pin-r pin-t m-3 opacity-50">
+			<div class="bg-white shadow-md rounded p-3 w-48 text-sm">
+				<b class="text-base mb-1 inline-block">
+					<svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+					Preview-mode
+				</b>
+				<p class="mb-2 px-1">Du er nu i preview-mode, her kan du se hvordan din side vil se ud for besøgende.</p>
+				<button class="btn mb-2" @click="toggleMode">Skift mode</button>
+				<button class="btn" @click="toggleMode">Gem Hjemmeside</button>
+			</div>
+		</div> -->
+
+
 		<header class="container mx-auto flex py-6 items-baseline justify-between flex-no-shrink">
 			<div class="flex-1">				
 				<svg class="fill-current text-green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
@@ -31,7 +45,7 @@
 						<h2 class="text-4xl mb-4">{{ content.menu_title }}</h2>
 						<div>
 							<ul class="list-reset flex-1 w-1/2">
-								<li class="flex" v-for="item in content.menu">
+								<li class="flex mb-2" v-for="item in content.menu">
 									<span class="flex-1">
 										{{ item.name }}
 									</span> 
@@ -79,14 +93,8 @@
 	import store from '../../store';
 
 	export default {
-		props: ['value'],
-		methods: {
-			toggleMode() {
-				store.dispatch('toggleMode')
-			}
-		},
 		data: vm => ({
-			content: vm.value
+			content: store.getters.content
 		})
 	}
 </script>

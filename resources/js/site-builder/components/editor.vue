@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <span :class="{ 'placeholder-right' : this.placeholderRight }"></span>
 </template>
 
 
@@ -9,11 +9,19 @@ import MediumEditor from 'medium-editor'
 export default {
   props: {
     value: [String, Number],
-    options: Object
+    options: Object,
+    placeholder: {
+      type: String,
+      default: 'Skriv...'
+    },
+    placeholderRight: Boolean
   },
   mounted() {
     this.editor = new MediumEditor(this.$el, {
       toolbar: false,
+      placeholder: {
+        text : this.placeholder
+      },
       ...this.options
     })
 

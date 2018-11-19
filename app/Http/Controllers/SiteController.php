@@ -69,7 +69,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         ]);
         
         $newSite = Site::create([
-            'slug' => str_random(5),
+            'slug' => strtolower(str_random(5)),
             'name' => $passedData['name'],
             'content' => $passedData['content'],
             'openhours' => $passedData['openhours'],

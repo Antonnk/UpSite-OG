@@ -1,6 +1,18 @@
 <template>
 	<main class="bg-brown-lighter h-screen flex flex-col">
-		<button class="bg-yellow fixed m-1 m-3 p-2 pin-b pin-r rounded-full" @click="toggleMode">toggle</button>
+		
+		<!-- <div class="fixed pin-r pin-t m-3">
+			<div class="bg-white shadow-md rounded p-3 w-48 text-sm">
+				<b class="text-base mb-1 inline-block">
+					<svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/></svg>
+					Tilpassings-mode
+				</b>
+				<p class="mb-2 px-1">Du er nu i tilpassings-mode, her kan du ændre alle tekster og billeder på hele siden</p>
+				<button class="btn mb-2" @click="toggleMode">Skift mode</button>
+				<button class="btn" @click="storeContent">Gem Hjemmeside</button>
+			</div>
+		</div> -->
+		
 		<header class="container mx-auto flex py-6 items-baseline justify-between flex-no-shrink">
 			<div class="flex-1">				
 				<svg class="fill-current text-green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
@@ -39,15 +51,17 @@
 						</h2>
 						<div>
 							<editorRepeater v-model="content.menu" :item-schema="{name: '', price: ''}">
-								<ul class="list-reset flex-1 w-1/2" slot-scope="{ items }">
-									<li class="flex" v-for="item in items">
-										<span class="flex-1">
-											<editor :options="{disableReturn:true}" v-model="item.name" />
-										</span> 
-										<span>
-											<editor :options="{disableReturn:true}" v-model="item.price" />
-										</span>
+								<ul class="list-reset flex-1 w-1/2" slot-scope="{ items, addRow, removeRow }">
+									<li class="flex mb-2" v-for="(item, index) in items" :key="item._key">
+										<p class="flex-1">
+											<editor :options="{disableReturn:true}" v-model="item.name"/>
+										</p>
+										<p>
+											<editor placeholder="pris" placeholder-right :options="{disableReturn:true}" v-model="item.price" />
+										</p>
+										<button class="btn ml-2" @click="removeRow(index)">Fjern</button> 
 									</li>
+									<button class="btn" @click="addRow">Tilføj menupunkt</button>
 								</ul>
 							</editorRepeater>
 						</div>
@@ -95,13 +109,8 @@
 	export default {
 		props: ['value'],
 		data: vm => ({
-			content: vm.value
+			content: store.getters.content
 		}),
-		methods: {
-			toggleMode() {
-				store.dispatch('toggleMode')
-			}
-		},
 		components: {
 			editor,
 			editorRepeater

@@ -1,11 +1,15 @@
 <template>
-	<component :value="content" :is="setComponent"></component>
+	<div>
+		<toolbar/>
+		<component :value="content" :is="setComponent"></component>
+	</div>
 </template>
 
 <script>
 	import store from '../store';
 	import LoadingComponent from './components/Loading.vue'
 	import ErrorComponent from './components/Error.vue'
+	import Toolbar from './components/Toolbar.vue'
 
 	export default {
 		props: {
@@ -17,6 +21,8 @@
 			theme: vm.initTheme
 		}),
 		created() {
+			store.commit('setContent', this.content)
+
 			if(this.initMode) {
 				store.commit(`setMode${this.initMode}`)
 			}
@@ -41,6 +47,9 @@
 					timeout: 3000
 				})
 			}
+		},
+		components: {
+			Toolbar
 		}
 	}
 </script>

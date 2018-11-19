@@ -506,8 +506,13 @@ table {
 }
 
 .medium-editor-element {
-  min-height: 0 !important;
-  display: inline;
+  min-height: 20px !important;
+  display: inline-block;
+}
+
+.placeholder-right.medium-editor-placeholder:after {
+  right: 0;
+  left: initial;
 }
 
 h1,
@@ -550,6 +555,19 @@ h2 {
   .container {
     max-width: 992px;
   }
+}
+
+.btn {
+  border-width: 1px;
+  border-color: #395442;
+  cursor: pointer;
+  font-weight: 700;
+  padding: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-radius: .25rem;
+  color: #395442;
+  font-size: .75rem;
 }
 
 /**
