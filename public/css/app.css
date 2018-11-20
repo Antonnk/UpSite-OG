@@ -559,6 +559,17 @@ table {
   background: rgba(255, 255, 255, .15);
 }
 
+.input {
+  font-size: .875rem;
+  margin-bottom: .75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-radius: .25rem;
+  width: 100%;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

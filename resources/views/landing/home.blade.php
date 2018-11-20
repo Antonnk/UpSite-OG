@@ -1,6 +1,6 @@
 @extends('landing.master')
 
-@section('body-class', 'bg-yellow font-sans')
+@section('body-class', 'bg-yellow')
 
 @section('content')
     <div id="landing-gradinat-box" class="flex-col inline-flex p-6 rounded text-blue items-start">

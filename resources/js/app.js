@@ -10,8 +10,10 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import Vuex from 'vuex'
-Vue.use(Vuex)
+import PortalVue from 'portal-vue'
 import store from './store'
+Vue.use(Vuex)
+Vue.use(PortalVue)
 
 Vue.component('cl-image', require('./components/CloudImage.vue'))
 Vue.component('site-builder', require('./site-builder/index.vue'))

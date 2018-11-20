@@ -26,6 +26,10 @@
 	background: rgba(255, 255, 255, 0.15);
 }
 
+.input {
+	@apply text-sm mb-3 px-4 py-3 rounded w-full;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

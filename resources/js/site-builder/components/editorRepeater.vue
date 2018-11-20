@@ -14,25 +14,37 @@
 				this.update()
 			},
 			update() {
-				this.$emit('input', this.getItems)		
+				this.$emit('input', this.items)		
+			}
+		},
+		watch: {
+			items(newValue, oldValue) {
+				this.update()
 			}
 		},
 		computed: {
-			getItems() {
-				return this.items.map(item => {
-					return {
-						_key: Math.random().toString(36).substring(7),
-						...item
-					}
-				})
+			getItems: {
+				get() {
+					return this.items.map(item => {
+						return {
+							_key: Math.random().toString(36).substring(7),
+							...item
+						}
+					})
+				}
 			}
 		},
 		created() {
-			this.items = this.value
+			this.items = this.value.map(item => {
+				return {
+					_key: Math.random().toString(36).substring(7),
+					...item
+				}
+			})
 		},
 		render() {
 			return this.$scopedSlots.default({
-				items: this.getItems,
+				items: this.items,
 				addRow: this.addRow,
 				removeRow: this.removeRow
 			}) 

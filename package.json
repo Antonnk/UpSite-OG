@@ -25,6 +25,7 @@
     "dependencies": {
         "cloudinary-core": "^2.5.0",
         "medium-editor": "^5.23.3",
+        "portal-vue": "^1.4.0-beta.1",
         "vuex": "^3.0.1"
     }
 }

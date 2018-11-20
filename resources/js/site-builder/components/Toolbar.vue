@@ -1,12 +1,16 @@
 <template>
-  <div id="toolbar" class="p-3 text-white text-sm">
-    <b class="text-base mb-1 inline-block">
-    <svg class="w-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/></svg>
-    Tilpassings-mode
-    </b>
-    <p class="mb-2">Du er nu i tilpassings-mode, her kan du ændre alle tekster og billeder på hele siden</p>
-    <button class="btn mb-2" @click="toggleMode">Skift mode</button>
-    <button class="btn" @click="storeContent">Gem Hjemmeside</button>
+  <div id="toolbar" class="flex justify-between p-3 text-sm text-white fixed pin-t w-full">
+    <div>
+      <b class="text-base mb-1 inline-block">
+      <svg class="w-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/></svg>
+      Tilpassings-mode
+      </b>
+      <p>Du er nu i tilpassings-mode, her kan du ændre alle tekster og billeder på hele siden</p>
+    </div>  
+    <div>
+      <button class="btn text-white border-white mb-2" @click="toggleMode">Skift mode</button>
+      <button class="btn text-white border-white" @click="storeContent">Gem Hjemmeside</button>
+    </div>
   </div>
 </template>
 
@@ -19,7 +23,7 @@
         store.dispatch('toggleMode')
       },
       storeContent() {
-        store.dispatch('storeContent', this.content)
+        store.dispatch('storeContent')
       }
     }
   }

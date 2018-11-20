@@ -30,6 +30,6 @@ class SiteClaimed extends Mailable
      */
     public function build()
     {
-        return $this->text('Welsome to Upsite. site: '.$this->site->name);
+        return $this->view('mails.sites.claimed');
     }
 }

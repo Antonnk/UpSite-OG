@@ -2,6 +2,13 @@
 	<div>
 		<toolbar/>
 		<component :value="content" :is="setComponent"></component>
+		<modal v-if="getSlug" noClose>
+			<template slot="title">
+				Hej med dig
+			</template>
+			some content
+		</modal>
+		<portal-target name="modal"></portal-target>
 	</div>
 </template>
 
@@ -10,6 +17,7 @@
 	import LoadingComponent from './components/Loading.vue'
 	import ErrorComponent from './components/Error.vue'
 	import Toolbar from './components/Toolbar.vue'
+	import Modal from './components/Modal.vue'
 
 	export default {
 		props: {
@@ -18,7 +26,7 @@
 			content: Object
 		},
 		data: vm => ({
-			theme: vm.initTheme
+			theme: vm.initTheme,
 		}),
 		created() {
 			store.commit('setContent', this.content)
@@ -28,6 +36,9 @@
 			}
 		},
 		computed: {
+			getSlug() {
+				return store.getters.slug
+			},
 			getMode() {
 				return store.getters.mode
 			},
@@ -35,7 +46,7 @@
 				this.getMode; // call to evaluate mode before import
 				return () => ({
 					// The component to load (should be a Promise)
-					component: import(`./theme/${this.theme}${this.getMode}.vue`),
+					component: import(`./theme/${this.theme}${this.getMode}.vue` /* webpackChunkName: "js/dynamic-component" */),
 					// A component to use while the async component is loading
 					loading: LoadingComponent,
 					// A component to use if the load fails
@@ -49,7 +60,8 @@
 			}
 		},
 		components: {
-			Toolbar
+			Toolbar,
+			Modal
 		}
 	}
 </script>

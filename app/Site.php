@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Mail\SiteClaimed;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use Spatie\OpeningHours\OpeningHours;
 
 class Site extends Model
@@ -18,7 +20,16 @@ class Site extends Model
 	{
 		$this->user_id = $user_id;
 		$this->save();
+		$this->refresh();
+
+        Mail::to($this->owner)->send(new SiteClaimed($this));
+
 		return $this;
+	}
+
+	public function url()
+	{
+		return route('site.show', ['slug' => $this->slug]);
 	}
 
 	public function getOpenhours()
@@ -30,4 +41,14 @@ class Site extends Model
 	{
 		return $this->belongsTo(User::class, 'user_id');
 	}
+
+	public function getNameAttribute()
+    {
+        return $this->content['name'];
+    }
+
+	public function getCoverImageAttribute()
+    {
+        return $this->content['intro_image'];
+    }
 }

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Site;
-use App\Mail\SiteClaimed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
 class SiteController extends Controller
@@ -74,9 +72,16 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             'content' => $passedData['content'],
             'openhours' => $passedData['openhours'],
             'user_id' => null
-        ]);   
+        ]);
 
-        return response()->json($newSite, 201);
+        session(['site.slug' => $newSite->slug]);
+
+        $response = array_merge(
+            ['redirect' => route('register')],
+            $newSite->toArray()
+        );
+
+        return response()->json($response, 201);
     }
 
     /**
@@ -102,8 +107,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 
         $site->claim(Auth::id());
         $site->refresh();
-        
-        Mail::to($site->owner)->send(new SiteClaimed($site));
 
         return response()->json($site);
     }

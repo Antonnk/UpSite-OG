@@ -1,7 +1,7 @@
 <?php
 
-Route::domain('{slug}.'.env('APP_DOMAIN'))->group(function () {
-    Route::get('/','SiteController@show')->middleware('cacheResponse');
+Route::domain('{slug}.'.config('app.domain'))->group(function () {
+    Route::get('/','SiteController@show')->middleware('cacheResponse')->name('site.show');
 });
 
 Route::post('/sites', 'SiteController@store');
@@ -17,7 +17,7 @@ Route::delete('/images', 'ImageController@destroy');
 
 Route::get('/', function() {
 	return view('landing.home');
-});
+})->name('landing');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
