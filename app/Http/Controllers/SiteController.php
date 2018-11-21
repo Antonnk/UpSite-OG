@@ -16,39 +16,18 @@ class SiteController extends Controller
      */
     public function create($theme)
     {
-        $content = json_encode([
-            'name' => 'Cafe navn',
-            'title' => 'Reprehenderit in voluptat',
-            'menu' => [
-                ['name' => 'Kaffe', 'price' => 10],
-                ['name' => 'Kage', 'price' => 15],
-                ['name' => 'Tea', 'price' => 5],
-            ], 
-            'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 
-            'intro_image'=> 'cafe/karl-fredrickson-35017-unsplash',
-            'menu_image'=> 'cafe/nafinia-putra-59655-unsplash',
-            'menu_title'=> 'Vores Menu',
-            'contact' => [
-                'address' => 'bynavn',
-                'phone' => '+45 12345678',
-                'email' => 'email@cafe.dk'
-            ],
-            'social' => [
-                'instagram' => '@instagram',
-                'facebook' => '/facebook',
-                'twitter' => '@twitter',
-                'snapchat' => 'snapchat'
-            ]
-        ]);
+        try {
+            $theme = \App\Theme::where('slug', $theme)->firstOrFail();
+        } catch (Exception $e) {
+            abort(404);
+        }
+
+        $styleSheetPath = mix("css/$theme->slug.css");
 
         return view('build', [
-            'theme' => $theme,
-            'content' => $content
+            'styleSheetPath' => $styleSheetPath,
+            'theme' => $theme->slug,
+            'content' => $theme->preset_content
         ]);
     }
 
@@ -93,8 +72,10 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     public function show($slug)
     {
         $site = Site::where('slug', $slug)->first();
-
-        return response()->json($site);
+        return view('render', [
+            'theme' => 'cafe',
+            'site' => $site
+        ]);
     }
 
     public function claim($slug)
@@ -164,5 +145,19 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         } catch (Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             abort(404);
         }
+    }
+
+    public function manifest($slug)
+    {
+        $site = Site::where('slug', $slug)->first();
+
+        return response()->json([
+            'name' => $site->name,
+            'short_name' => $site->name,
+            'start_url' => $site->url(),
+            'display' => 'browser',
+            'background_color' => '#fff',
+            'description' => $site->description,
+        ]);
     }
 }

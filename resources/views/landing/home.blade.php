@@ -10,7 +10,7 @@
             Pæne Facebook Links og Seo. <br> 
             <b>på 5 minutter.</b>
         </p>
-        <a class="btn my-12" href="{{ route('build') }}">Byg din side</a>
+        <a class="btn my-12" href="{{ route('build.overview') }}">Byg din side</a>
     </div>
 @endsection
 

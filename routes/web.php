@@ -2,12 +2,16 @@
 
 Route::domain('{slug}.'.config('app.domain'))->group(function () {
     Route::get('/','SiteController@show')->middleware('cacheResponse')->name('site.show');
+    Route::get('/manifest.json','SiteController@manifest')->middleware('cacheResponse')->name('site.manifest');
 });
 
 Route::post('/sites', 'SiteController@store');
 Route::delete('/sites/{slug}', 'SiteController@destroy');
 Route::put('/sites/{slug}/claim', 'SiteController@claim');
 Route::put('/sites/{slug}', 'SiteController@update');
+
+
+Route::get('/skabeloner', 'ThemeController@index')->name('build.overview');
 Route::get('/build/{theme?}', 'SiteController@create')->name('build');
 
 Route::get('/images/{folder?}/{subfolder?}', 'ImageController@index');

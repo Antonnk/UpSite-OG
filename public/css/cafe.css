@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lilita+One);/**
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300,300i,400,400i,500,500i,700,700i);/**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
  *
@@ -517,7 +517,7 @@ table {
 
 h1,
 h2 {
-  font-family: Lilita One, serif;
+  font-family: Alegreya Sans, serif;
   letter-spacing: .05em;
 }
 
@@ -1343,7 +1343,7 @@ h2 {
 }
 
 .font-display {
-  font-family: Lilita One, serif;
+  font-family: Alegreya Sans, serif;
 }
 
 .font-hairline {
@@ -4050,7 +4050,7 @@ h2 {
   }
 
   .sm\:font-display {
-    font-family: Lilita One, serif;
+    font-family: Alegreya Sans, serif;
   }
 
   .sm\:font-hairline {
@@ -6742,7 +6742,7 @@ h2 {
   }
 
   .md\:font-display {
-    font-family: Lilita One, serif;
+    font-family: Alegreya Sans, serif;
   }
 
   .md\:font-hairline {
@@ -9434,7 +9434,7 @@ h2 {
   }
 
   .lg\:font-display {
-    font-family: Lilita One, serif;
+    font-family: Alegreya Sans, serif;
   }
 
   .lg\:font-hairline {
@@ -12126,7 +12126,7 @@ h2 {
   }
 
   .xl\:font-display {
-    font-family: Lilita One, serif;
+    font-family: Alegreya Sans, serif;
   }
 
   .xl\:font-hairline {

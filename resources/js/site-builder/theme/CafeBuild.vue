@@ -22,11 +22,34 @@
 				</p>
 			</div>
 			<div class="flex justify-end w-1/2">
-				<cl-image 
-					class="border-b-8 border-r-8 border-brown"
-					:public-id="content.intro_image" 
-					:options="{ crop: 'fill', width: 400, height: 400 }"
-				/>
+				<cloud-image-manager v-model="content.intro_image">
+					<div slot-scope="{ chooseImage, images, public_id, setImage, modalVisable, hideModal }" class="relative">
+						<cl-image 
+							class="border-b-8 border-r-8 border-brown"
+							:public-id="content.intro_image" 
+							:options="{ crop: 'fill', width: 400, height: 400 }"
+						/>
+						<button @click="chooseImage" class="absolute pin-t pin-r btn bg-white m-1">Vælg Billede</button>
+						<modal v-if="images.length && modalVisable" v-on:close="hideModal">
+							<template slot="title">
+								Vælg et cover billede
+							</template>
+							<div class="flex flex-row flex-wrap">
+								<div
+									class="mr-2 cursor-pointer"
+									v-for="image in images"  
+									:key="image.public_id"
+									@click="setImage(image.public_id)"
+								>
+									<cl-image 
+										:public-id="image.public_id"
+										:options="{ aspectRatio: '1:1', crop: 'fill',  width: 100 }"
+									/>
+								</div>
+							</div>
+						</modal>
+					</div>
+				</cloud-image-manager>
 			</div>
 		</section>
 		<section class="bg-brown-light text-green mt-12">
@@ -53,13 +76,36 @@
 							</editorRepeater>
 						</div>
 					</div>
-					<div class="flex-1 w-1/3">
-						<cl-image 
-							class="bg-cover bg-no-repeat h-full w-full" 
-							:options="{ crop: 'scale', width: 500, effect: 'colorize:50', color: '#f2e3b4' }"
-							:public-id="content.menu_image">
-							<i></i>
-						</cl-image>
+					<div class="flex flex-1 w-1/3">
+						<cloud-image-manager v-model="content.menu_image">
+							<div slot-scope="{ chooseImage, images, public_id, setImage, modalVisable, hideModal }" class="relative flex-1">
+								<cl-image 
+									class="bg-cover bg-no-repeat h-full w-full" 
+									:options="{ crop: 'scale', width: 500, effect: 'colorize:50', color: '#f2e3b4' }"
+									:public-id="content.menu_image">
+									<i></i>
+								</cl-image>
+								<button @click="chooseImage" class="absolute pin-t pin-r btn bg-white m-1">Vælg Billede</button>
+								<modal v-if="images.length && modalVisable" v-on:close="hideModal">
+									<template slot="title">
+										Vælg et cover billede
+									</template>
+									<div class="flex flex-row flex-wrap">
+										<div
+											class="mr-2 cursor-pointer"
+											v-for="image in images"  
+											:key="image.public_id"
+											@click="setImage(image.public_id)"
+										>
+											<cl-image 
+												:public-id="image.public_id"
+												:options="{ aspectRatio: '1:1', crop: 'fill',  width: 100 }"
+											/>
+										</div>
+									</div>
+								</modal>
+							</div>
+						</cloud-image-manager>
 					</div>
 				</div>
 			</div>
@@ -92,15 +138,18 @@
 	import store from '../../store';
 	import editor from '../components/editor.vue'
 	import editorRepeater from '../components/editorRepeater.vue'
+	import CloudImageManager from '../components/CloudImageManager.vue'
+	import Modal from '../components/Modal.vue'
 
 	export default {
-		props: ['value'],
 		data: vm => ({
 			content: store.getters.content
 		}),
 		components: {
 			editor,
-			editorRepeater
+			editorRepeater,
+			CloudImageManager,
+			Modal
 		}
 	}
 </script>

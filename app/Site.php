@@ -47,6 +47,11 @@ class Site extends Model
         return $this->content['name'];
     }
 
+    public function getDescriptionAttribute()
+    {
+        return $this->content['intro'];
+    }
+
 	public function getCoverImageAttribute()
     {
         return $this->content['intro_image'];

@@ -561,13 +561,30 @@ table {
 
 .input {
   font-size: .875rem;
-  margin-bottom: .75rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: .75rem;
   padding-bottom: .75rem;
   border-radius: .25rem;
   width: 100%;
+}
+
+.input.is-invalid {
+  border-width: 2px;
+  border-color: #ef5753;
+}
+
+.label-error {
+  background-color: #ef5753;
+  display: inline-block;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  padding: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-radius: .25rem;
+  font-weight: 500;
+  font-size: .875rem;
 }
 
 /**

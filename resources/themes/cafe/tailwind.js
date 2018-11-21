@@ -150,7 +150,7 @@ module.exports = {
       'serif',
     ],
     'display': [
-      'Lilita One',
+      'Alegreya Sans',
       'serif',
     ],
   },
