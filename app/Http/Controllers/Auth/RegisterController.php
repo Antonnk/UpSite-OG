@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -75,7 +75,13 @@ class RegisterController extends Controller
             session()->forget('site.slug');
         }
 
+
         return $user;
+    }
+
+    public function redirectTo($site)
+    {
+        redirect($site->url());
     }
 
     public function showRegistrationForm()

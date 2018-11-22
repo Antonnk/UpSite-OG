@@ -19,9 +19,7 @@ Route::post('/images', 'ImageController@store');
 Route::delete('/images', 'ImageController@destroy');
 
 
-Route::get('/', function() {
-	return view('landing.home');
-})->name('landing');
+Route::get('/', 'LandingController@index')->name('landing');
+Route::get('/priser', 'LandingController@pricing')->name('pricing');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');

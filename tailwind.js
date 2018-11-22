@@ -64,7 +64,9 @@ let colors = {
   'yellow-light': '#fff382',
   'yellow-lighter': '#fff9c2',
 
+  'blue-lightest': '#BEB5CE',
   'blue': '#1F0059',
+  'blue-dark': '#1A0052',
 
 }
 
