@@ -22,8 +22,7 @@
 @tailwind components;
 
 .btn {
-	@apply border-4 border-blue font-semibold inline-flex no-underline px-4 py-3 rounded-full text-blue cursor-pointer;
-	background: rgba(255, 255, 255, 0.15);
+	@apply font-bold inline-flex no-underline px-6 py-4 rounded-full text-white bg-blue cursor-pointer;
 }
 
 .input {
@@ -48,9 +47,12 @@
  */
 @tailwind utilities;
 
-#landing-gradinat-box {
-	background: -webkit-linear-gradient(#FBD800 0%, rgba(251, 216, 0, 0) 100%);
-	background: -o-linear-gradient(#FBD800 0%, rgba(251, 216, 0, 0) 100%);
-	background: linear-gradient(#FBD800 0%, rgba(251, 216, 0, 0) 100%);
+#triangle-homepage {
+    transform: scale(1.5) translateX(20%);
 }
 
+#footer-border {
+	background-image: url("data:image/svg+xml,%3Csvg width='48' height='34' viewBox='0 0 48 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M25.2465 34L47.571 0L23.0876 0.00012207L0.763184 34H25.2465Z' fill='%23FFC700'/%3E%3C/svg%3E%0A");
+    height: 37px;
+    background-size: 57px;
+}
