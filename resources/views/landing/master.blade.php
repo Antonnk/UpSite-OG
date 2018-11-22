@@ -11,7 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class=" font-sans @yield('body-class')">
-    <div id="root" class="h-full relative">
+    <div id="root" class="min-h-screen relative">
         <header class="container flex mx-auto relative z-50 py-8 mb-8">
             <h2 title="Upsite">
                 <a href="/">

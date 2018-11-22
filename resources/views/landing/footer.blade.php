@@ -1,4 +1,4 @@
-<footer class="bg-blue text-white relative w-full z-50">
+<footer class="bg-blue text-white absolute pin-b w-full z-50">
     <div id="footer-border"></div>
 
 
