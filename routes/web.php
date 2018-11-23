@@ -26,3 +26,4 @@ Route::get('/kontakt', 'LandingController@contact')->name('contact');
 Auth::routes();
 Route::get('/konto', 'AccountController@index')->name('account.index');
 Route::get('/konto/rediger', 'AccountController@edit')->name('account.edit');
+Route::post('/konto/rediger', 'AccountController@update')->name('account.update');

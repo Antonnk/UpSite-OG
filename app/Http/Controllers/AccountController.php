@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
 {
@@ -81,9 +83,30 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $validated = $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => ['nullable','string', 'min:6', 'confirmed'],
+        ]);
+
+        $user->fill([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        if($request->password != null) {
+            $user->password = Hash::make($request->password);
+        }
+    
+        if($user->save()) {
+            return redirect()->route('account.index')->with('status', 'Konto oplysniger opdateret!');
+        }
+
+        abort(500);
     }
 
     /**

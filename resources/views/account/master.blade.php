@@ -30,6 +30,11 @@
         </header>
 
         <main class="py-4 container mx-auto">
+            @if (session('status'))
+                <div class="bg-blue-lightest border-l-4 border-blue font-semibold p-3 text-blue">
+                    {{ session('status') }}
+                </div>
+            @endif
             @hasSection('title')
                 <h1 class="text-blue my-8">@yield('title')</h1>
             @endif
