@@ -22,9 +22,9 @@
     <div id="root">
         <header class="bg-blue py-4"> 
             <div class="container mx-auto flex items-center">
-                <div>
+                <a href="{{ route('account.index') }}">
                     @include('landing.logo-negative')
-                </div>
+                </a>
                 @include('account.partials.navbar')
             </div>
         </header>

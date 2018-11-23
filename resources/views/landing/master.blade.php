@@ -28,15 +28,21 @@
                 
                 <nav class="flex-1 main-nav">
                     <ul class="flex justify-end list-reset text-blue font-medium">
-                        <li class="{{ request()->is('priser') ? 'active' : '' }}">
+                        <li class="{{ request()->url() == route('pricing') ? 'active' : '' }}">
                             <a class="ml-8 no-underline text-blue" href="{{ route('pricing') }}">Priser</a>
                         </li>
-                        <li>
+                        <li class="{{ request()->url() == route('contact') ? 'active' : '' }}">
                             <a class="ml-8 no-underline text-blue" href="">Kontakt</a>
                         </li>
-                        <li>
-                            <a class="ml-8 no-underline text-blue" href="{{ route('login') }}">Log ind</a>
-                        </li>
+                        @if (Auth::check())
+                            <li class="{{ request()->url() == route('account.index') ? 'active' : '' }}">
+                                <a class="ml-8 no-underline text-blue" href="{{ route('account.index') }}">Konto</a>
+                            </li>
+                        @else
+                            <li class="{{ request()->url() == route('login') ? 'active' : '' }}">
+                                <a class="ml-8 no-underline text-blue" href="{{ route('login') }}">Log ind</a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </header>
