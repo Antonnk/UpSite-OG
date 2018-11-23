@@ -15,6 +15,11 @@ class User extends Authenticatable
         return false;
     }
 
+    public function site()
+    {
+        return $this->hasOne(Site::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

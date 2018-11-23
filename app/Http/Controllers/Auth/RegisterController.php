@@ -28,7 +28,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    //protected $redirectTo = '/account';
+    protected function redirectTo()
+    {
+        return route('account.index');
+    }
 
     /**
      * Create a new controller instance.
@@ -77,11 +81,6 @@ class RegisterController extends Controller
 
 
         return $user;
-    }
-
-    public function redirectTo($site)
-    {
-        redirect($site->url());
     }
 
     public function showRegistrationForm()

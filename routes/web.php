@@ -23,3 +23,4 @@ Route::get('/', 'LandingController@index')->name('landing');
 Route::get('/priser', 'LandingController@pricing')->name('pricing');
 
 Auth::routes();
+Route::get('/konto', 'AccountController@index')->name('account.index');
