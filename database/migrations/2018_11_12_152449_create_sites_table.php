@@ -22,7 +22,9 @@ class CreateSitesTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('theme_id')->nullable();
             $table->timestamps();
+        });
 
+        Schema::table('sites', function(Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('theme_id')->references('id')->on('themes');
         });
