@@ -44,7 +44,7 @@ class SiteTest extends TestCase
     {
 		$site = factory(\App\Site::class)->create();
 
-		$response = $this->get('http://'.$site->slug.'.'.env('APP_DOMAIN'));
+		$response = $this->get($site->url());
 		
 		$response->assertStatus(200)->assertSee($site->name);
     }

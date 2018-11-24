@@ -17,6 +17,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
     mode: 'Build',
+    theme: false,
     status: {
       type: 'default',
       msg: ''
@@ -56,6 +57,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     },
     setStatus: function setStatus(state, type, msg) {
       return state.stauts = { type: type, msg: msg };
+    },
+    setTheme: function setTheme(state, theme) {
+      return state.theme = theme;
     }
   },
   actions: {
@@ -74,9 +78,27 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].storeContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours
+        openhours: state.site.openhours,
+        theme: state.theme
       }).then(function (res) {
         if (res.data.redirect) window.location.href = res.data.redirect;
+      }).catch(function (error) {
+        return console.error(error);
+      });
+    },
+    updateContent: function updateContent(_ref3) {
+      var state = _ref3.state,
+          commit = _ref3.commit;
+
+
+      __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].updateContent({
+        name: state.site.content.name,
+        content: state.site.content,
+        openhours: state.site.openhours,
+        theme: state.theme
+      }).then(function (res) {
+        console.log(res);
+        //if(res.data.redirect) window.location.href = res.data.redirect;
       }).catch(function (error) {
         return console.error(error);
       });
@@ -1043,6 +1065,9 @@ var index_esm = {
 /* harmony default export */ __webpack_exports__["a"] = ({
   storeContent: function storeContent(content) {
     return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/sites', content);
+  },
+  updateContent: function updateContent(content) {
+    return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/sites/' + window.slug, content);
   }
 });
 

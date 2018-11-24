@@ -6,7 +6,8 @@
         <meta name="cloudinary_cloud_name" content="di0tb2zrz">
         
         <meta name="description" content="{{ $site->description }}">
-
+        <link rel="manifest" href="/manifest.json">
+        
         <link rel="stylesheet" href="{{ mix("css/$theme.css") }}">
         <title>{{ $site->name }}</title>
     </head>

@@ -7,6 +7,7 @@ import Api from './api'
 export default new Vuex.Store({
   state: {
     mode: 'Build',
+    theme: false,
     status: {
       type: 'default',
       msg: ''
@@ -28,7 +29,8 @@ export default new Vuex.Store({
   	setModeBuild: state => state.mode = 'Build',
     setModeRender: state => state.mode = 'Render',
     setSlug: (state, slug) => state.site.slug = slug,
-    setStatus: (state, type, msg) => state.stauts = { type, msg }
+    setStatus: (state, type, msg) => state.stauts = { type, msg },
+    setTheme: (state, theme) => state.theme = theme
   },
   actions: {
     toggleMode ({state, commit}) {
@@ -40,10 +42,26 @@ export default new Vuex.Store({
       Api.storeContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours
+        openhours: state.site.openhours,
+        theme: state.theme
       })
       .then(res => {
         if(res.data.redirect) window.location.href = res.data.redirect;
+      })
+      .catch(error => console.error(error))
+
+    },
+    updateContent({state, commit}) {
+
+      Api.updateContent({
+        name: state.site.content.name,
+        content: state.site.content,
+        openhours: state.site.openhours,
+        theme: state.theme
+      })
+      .then(res => {
+        console.log(res)
+        //if(res.data.redirect) window.location.href = res.data.redirect;
       })
       .catch(error => console.error(error))
 

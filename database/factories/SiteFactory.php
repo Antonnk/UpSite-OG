@@ -8,8 +8,8 @@ $factory->define(App\Site::class, function (Faker $faker) {
 		'name' => $name,
 		'slug' => str_slug($name),
 		'content' => [
-			'heading' => $faker->realText(50),
-			'description' => $faker->realText(200)
+			'name' => $faker->realText(50),
+			'intro' => $faker->realText(200)
 		],
 		'openhours' => [
 			'monday' => ['09:00-12:00', '13:00-18:00'],
@@ -21,6 +21,9 @@ $factory->define(App\Site::class, function (Faker $faker) {
 		],
 		'user_id' => function () {
             return factory(App\User::class)->create()->id;
+        },
+        'theme_id' => function () {
+        	return factory(App\Theme::class)->create()->id;	
         }
     ];
 });

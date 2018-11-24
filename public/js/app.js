@@ -42608,6 +42608,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
     mode: 'Build',
+    theme: false,
     status: {
       type: 'default',
       msg: ''
@@ -42647,6 +42648,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     },
     setStatus: function setStatus(state, type, msg) {
       return state.stauts = { type: type, msg: msg };
+    },
+    setTheme: function setTheme(state, theme) {
+      return state.theme = theme;
     }
   },
   actions: {
@@ -42665,9 +42669,27 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].storeContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours
+        openhours: state.site.openhours,
+        theme: state.theme
       }).then(function (res) {
         if (res.data.redirect) window.location.href = res.data.redirect;
+      }).catch(function (error) {
+        return console.error(error);
+      });
+    },
+    updateContent: function updateContent(_ref3) {
+      var state = _ref3.state,
+          commit = _ref3.commit;
+
+
+      __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].updateContent({
+        name: state.site.content.name,
+        content: state.site.content,
+        openhours: state.site.openhours,
+        theme: state.theme
+      }).then(function (res) {
+        console.log(res);
+        //if(res.data.redirect) window.location.href = res.data.redirect;
       }).catch(function (error) {
         return console.error(error);
       });
@@ -44102,6 +44124,9 @@ function applyToTag (styleElement, obj) {
 /* harmony default export */ __webpack_exports__["a"] = ({
   storeContent: function storeContent(content) {
     return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/sites', content);
+  },
+  updateContent: function updateContent(content) {
+    return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/sites/' + window.slug, content);
   }
 });
 
@@ -44912,6 +44937,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	created: function created() {
 		__WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('setContent', this.content);
+		__WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('setTheme', this.theme);
 
 		if (this.initMode) {
 			__WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('setMode' + this.initMode);
@@ -45038,7 +45064,7 @@ exports = module.exports = __webpack_require__(218)(false);
 
 
 // module
-exports.push([module.i, "\n#toolbar[data-v-2330148e] {\n  background-color: #1f0059;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234100ba' fill-opacity='0.58'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
+exports.push([module.i, "\n#toolbar[data-v-2330148e] {\n  background-color: #1f0059;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%236845ab' fill-opacity='0.27'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
 
 // exports
 
@@ -45099,6 +45125,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -45108,8 +45142,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].dispatch('toggleMode');
     },
     storeContent: function storeContent() {
+      if (window.slug) {
+        console.log(window.slug);
+        return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].dispatch('updateContent');
+      }
+
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].dispatch('storeContent');
-    }
+    },
+    updateContent: function updateContent() {}
   }
 });
 
@@ -45125,59 +45165,106 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex justify-between p-3 text-sm text-white fixed pin-t w-full z-50",
+        "p-3 text-sm text-white fixed pin-t w-full z-50 border-b-2 border-yellow",
       attrs: { id: "toolbar" }
     },
     [
-      _c("div", [
-        _c("b", { staticClass: "text-base mb-1 inline-block" }, [
-          _c(
-            "svg",
-            {
-              staticClass: "w-3 fill-current",
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 20 20"
-              }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"
-                }
-              })
-            ]
-          ),
-          _vm._v("\n    Tilpassings-mode\n    ")
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Du er nu i tilpassings-mode, her kan du ændre alle tekster og billeder på hele siden"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "button",
-          {
-            staticClass: "btn text-white border-white mb-2",
-            on: { click: _vm.toggleMode }
-          },
-          [_vm._v("Skift mode")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn text-white border-white",
-            on: { click: _vm.storeContent }
-          },
-          [_vm._v("Gem Hjemmeside")]
-        )
-      ])
+      _c(
+        "div",
+        { staticClass: "container flex items-center justify-between mx-auto" },
+        [
+          _c("div", [
+            _c("b", { staticClass: "text-base mb-1 inline-block" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "w-3 fill-current",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"
+                    }
+                  })
+                ]
+              ),
+              _vm._v("\n        Tilpassings-mode\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Du er nu i tilpassings-mode, her kan du ændre alle tekster og billeder på hele siden"
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "border-white btn flex items-center text-white mr-2",
+                on: { click: _vm.toggleMode }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "fill-current mr-1 text-white w-4",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 20 20"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v("\n        Skift mode\n      ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "border-white btn flex items-center text-white",
+                on: { click: _vm.storeContent }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "fill-current mr-1 text-white w-4",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 20 20"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M0 2C0 .9.9 0 2 0h14l4 4v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5 0v6h10V2H5zm6 1h3v4h-3V3z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v("\n        Gem Hjemmeside\n      ")
+              ]
+            )
+          ])
+        ]
+      )
     ]
   )
 }

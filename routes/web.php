@@ -9,6 +9,7 @@ Route::post('/sites', 'SiteController@store');
 Route::delete('/sites/{slug}', 'SiteController@destroy');
 Route::put('/sites/{slug}/claim', 'SiteController@claim');
 Route::put('/sites/{slug}', 'SiteController@update');
+Route::get('/sites/{slug}/rediger','SiteController@edit')->middleware('auth')->name('site.edit');
 
 
 Route::get('/skabeloner', 'ThemeController@index')->name('build.overview');

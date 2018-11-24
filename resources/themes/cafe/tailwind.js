@@ -49,6 +49,7 @@ let colors = {
   'black': '#22292f',
   'grey': '#b8c2cc',
   'white': '#ffffff',
+  'yellow': '#FFCC00',
 
   'green' : '#395442',
 

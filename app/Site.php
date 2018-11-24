@@ -42,10 +42,10 @@ class Site extends Model
 		return $this->belongsTo(User::class, 'user_id');
 	}
 
-	public function getNameAttribute()
-    {
-        return $this->content['name'];
-    }
+	public function theme()
+	{
+		return $this->belongsTo(Theme::class, 'theme_id');
+	}
 
     public function getDescriptionAttribute()
     {

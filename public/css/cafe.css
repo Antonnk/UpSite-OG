@@ -618,6 +618,10 @@ h2 {
   background-color: #fff;
 }
 
+.bg-yellow {
+  background-color: #fc0;
+}
+
 .bg-green {
   background-color: #395442;
 }
@@ -720,6 +724,10 @@ h2 {
 
 .border-white {
   border-color: #fff;
+}
+
+.border-yellow {
+  border-color: #fc0;
 }
 
 .border-green {
@@ -2959,6 +2967,10 @@ h2 {
   color: #fff;
 }
 
+.text-yellow {
+  color: #fc0;
+}
+
 .text-green {
   color: #395442;
 }
@@ -3333,6 +3345,10 @@ h2 {
     background-color: #fff;
   }
 
+  .sm\:bg-yellow {
+    background-color: #fc0;
+  }
+
   .sm\:bg-green {
     background-color: #395442;
   }
@@ -3427,6 +3443,10 @@ h2 {
 
   .sm\:border-white {
     border-color: #fff;
+  }
+
+  .sm\:border-yellow {
+    border-color: #fc0;
   }
 
   .sm\:border-green {
@@ -5650,6 +5670,10 @@ h2 {
     color: #fff;
   }
 
+  .sm\:text-yellow {
+    color: #fc0;
+  }
+
   .sm\:text-green {
     color: #395442;
   }
@@ -6025,6 +6049,10 @@ h2 {
     background-color: #fff;
   }
 
+  .md\:bg-yellow {
+    background-color: #fc0;
+  }
+
   .md\:bg-green {
     background-color: #395442;
   }
@@ -6119,6 +6147,10 @@ h2 {
 
   .md\:border-white {
     border-color: #fff;
+  }
+
+  .md\:border-yellow {
+    border-color: #fc0;
   }
 
   .md\:border-green {
@@ -8342,6 +8374,10 @@ h2 {
     color: #fff;
   }
 
+  .md\:text-yellow {
+    color: #fc0;
+  }
+
   .md\:text-green {
     color: #395442;
   }
@@ -8717,6 +8753,10 @@ h2 {
     background-color: #fff;
   }
 
+  .lg\:bg-yellow {
+    background-color: #fc0;
+  }
+
   .lg\:bg-green {
     background-color: #395442;
   }
@@ -8811,6 +8851,10 @@ h2 {
 
   .lg\:border-white {
     border-color: #fff;
+  }
+
+  .lg\:border-yellow {
+    border-color: #fc0;
   }
 
   .lg\:border-green {
@@ -11034,6 +11078,10 @@ h2 {
     color: #fff;
   }
 
+  .lg\:text-yellow {
+    color: #fc0;
+  }
+
   .lg\:text-green {
     color: #395442;
   }
@@ -11409,6 +11457,10 @@ h2 {
     background-color: #fff;
   }
 
+  .xl\:bg-yellow {
+    background-color: #fc0;
+  }
+
   .xl\:bg-green {
     background-color: #395442;
   }
@@ -11503,6 +11555,10 @@ h2 {
 
   .xl\:border-white {
     border-color: #fff;
+  }
+
+  .xl\:border-yellow {
+    border-color: #fc0;
   }
 
   .xl\:border-green {
@@ -13724,6 +13780,10 @@ h2 {
 
   .xl\:text-white {
     color: #fff;
+  }
+
+  .xl\:text-yellow {
+    color: #fc0;
   }
 
   .xl\:text-green {

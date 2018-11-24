@@ -13,6 +13,11 @@
             <site-builder init-theme="{{ studly_case($theme) }}" :content="{{ json_encode($content) }}"></site-builder>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
+        @isset($slug)
+            <script>
+                window.slug = '{{ $slug }}'
+            </script>
+        @endisset
     </body>
 </html>
  

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Site;
+use App\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\ResponseCache\Facades\ResponseCache;
@@ -42,15 +43,19 @@ class SiteController extends Controller
         $passedData = $request->validate([
             'name' => 'required|max:250',
             'content' => 'required|array',
-            'openhours' => 'array'
+            'openhours' => 'array',
+            'theme' => 'required|string'
         ]);
-        
+            
+        $theme = Theme::where('slug', strtolower($passedData['theme']))->first();
+
         $newSite = Site::create([
             'slug' => strtolower(str_random(5)),
             'name' => $passedData['name'],
             'content' => $passedData['content'],
             'openhours' => $passedData['openhours'],
-            'user_id' => null
+            'user_id' =>  (Auth::check() ? Auth::id() : null),
+            'theme_id' => $theme->id
         ]);
 
         session(['site.slug' => $newSite->slug]);
@@ -73,7 +78,7 @@ class SiteController extends Controller
     {
         $site = Site::where('slug', $slug)->first();
         return view('render', [
-            'theme' => 'cafe',
+            'theme' => $site->theme->slug,
             'site' => $site
         ]);
     }
@@ -93,9 +98,22 @@ class SiteController extends Controller
     }
 
     
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $site = Site::where('slug', $slug)->first();
+        if($site->owner->id != Auth::id()) {
+            return back();
+        }
+
+        $styleSheetPath = mix("css/{$site->theme->slug}.css");
+
+        return view('build', [
+            'slug' => $site->slug,
+            'styleSheetPath' => $styleSheetPath,
+            'theme' => $site->theme->slug,
+            'content' => $site->content
+        ]);
+    
     }
 
     
@@ -104,7 +122,7 @@ class SiteController extends Controller
         $passedData = $request->validate([
             'name' => 'required|max:250',
             'content' => 'required|array',
-            'openhours' => 'array'
+            'openhours' => 'array',
         ]);
 
         $site = Site::where('slug', $slug)->firstOrFail();
@@ -121,7 +139,7 @@ class SiteController extends Controller
             'openhours' => $passedData['openhours'],
         ]);
         
-        ResponseCache::forget('http://'.$site->slug.'.'.env('APP_DOMAIN'));
+        ResponseCache::forget($site->url());
 
         return response()->json($site);
     }

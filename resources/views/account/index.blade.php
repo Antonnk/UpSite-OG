@@ -12,7 +12,7 @@
 		</div>
 		<div class="w-full md:w-1/2">
 			<i class="font-extrabold opacity-25 tracking-wide uppercase">Adresse</i>
-			<p class="mb-3">{{ $user->site->content['contact']['address'] }}</p>
+			<p class="mb-3">{{ strip_tags($user->site->content['contact']['address']) }}</p>
 
 			<i class="font-extrabold opacity-25 tracking-wide uppercase">Telefon</i>
 			<p class="mb-3">{{ $user->site->content['contact']['phone'] }}</p>
@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<div>
-		<a class="btn btn-sm mr-2" href="">Rediger side</a>
+		<a class="btn btn-sm mr-2" target="_blank" href="{{ route('site.edit', $user->site->slug) }}">Rediger side</a>
 		<a class="btn btn-sm btn-white border" target="_blank" rel="noopener" href="{{ $user->site->url() }}">Se side</a>
 	</div>
 	@endif

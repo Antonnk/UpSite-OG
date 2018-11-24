@@ -17,13 +17,14 @@
 		props: {
 			initMode: String,
 			initTheme: String,
-			content: Object
+			content: Object,
 		},
 		data: vm => ({
 			theme: vm.initTheme,
 		}),
 		created() {
 			store.commit('setContent', this.content)
+			store.commit(`setTheme`, this.theme)
 
 			if(this.initMode) {
 				store.commit(`setMode${this.initMode}`)

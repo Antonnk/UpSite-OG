@@ -20,9 +20,11 @@ class CreateSitesTable extends Migration
             $table->json('content');
             $table->json('openhours');
             $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('theme_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('theme_id')->references('id')->on('themes');
         });
     }
 
