@@ -28,6 +28,9 @@
                 
                 <nav class="flex-1 main-nav">
                     <ul class="flex justify-end list-reset text-blue font-medium">
+                        <li class="{{ request()->url() == route('build.overview') ? 'active' : '' }}">
+                            <a class="ml-8 no-underline text-blue" href="{{ route('build.overview') }}">Byg din side</a>
+                        </li>
                         <li class="{{ request()->url() == route('pricing') ? 'active' : '' }}">
                             <a class="ml-8 no-underline text-blue" href="{{ route('pricing') }}">Priser</a>
                         </li>

@@ -15,17 +15,19 @@ export default new Vuex.Store({
     site: {
       slug: undefined,
       content: {},
-      openhours: {}
-    }
+    },
+    openhours: {}
   },
   getters: {
     mode: state => state.mode,
     content: state => state.site.content,
     status: state => state.status,
     slug: state => state.site.slug,
+    openhours: state => state.openhours
   },
   mutations: {
     setContent: (state, content) => state.site.content = content,
+    setOpenhours: (state, openhours) => state.openhours = openhours,
   	setModeBuild: state => state.mode = 'Build',
     setModeRender: state => state.mode = 'Render',
     setSlug: (state, slug) => state.site.slug = slug,
@@ -37,13 +39,21 @@ export default new Vuex.Store({
     	if(state.mode == 'Build') return commit('setModeRender')
     	return commit('setModeBuild')
     },
+    setOpenhours({commit}, openhours) {
+      return commit('setOpenhours', openhours)
+    },
     storeContent({state, commit}) {
+
+      const openhoursFormated = {
+        ...state.openhours,
+        exceptions: state.openhoursExceptions
+      }
 
       Api.storeContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours,
-        theme: state.theme
+        theme: state.theme,
+        openhours: openhoursFormated,
       })
       .then(res => {
         if(res.data.redirect) window.location.href = res.data.redirect;
@@ -56,7 +66,7 @@ export default new Vuex.Store({
       Api.updateContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours,
+        openhours: state.openhours,
         theme: state.theme
       })
       .then(res => {

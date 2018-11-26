@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="root">
-            <site-builder init-theme="{{ studly_case($theme) }}" :content="{{ json_encode($content) }}"></site-builder>
+            <site-builder :openhours="{{ json_encode($openhours) }}" init-theme="{{ studly_case($theme) }}" :content="{{ json_encode($content) }}"></site-builder>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
         @isset($slug)

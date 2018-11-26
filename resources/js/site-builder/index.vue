@@ -18,6 +18,7 @@
 			initMode: String,
 			initTheme: String,
 			content: Object,
+			openhours: Object
 		},
 		data: vm => ({
 			theme: vm.initTheme,
@@ -25,6 +26,7 @@
 		created() {
 			store.commit('setContent', this.content)
 			store.commit(`setTheme`, this.theme)
+			store.commit(`setOpenhours`, this.openhours)
 
 			if(this.initMode) {
 				store.commit(`setMode${this.initMode}`)

@@ -1,7 +1,7 @@
 <template>
 	<portal to="modal">
 		<div id="overlay" class="fixed flex h-screen items-center justify-center pin-t w-screen">
-			<div class="bg-white rounded shadow w-1/2">
+			<div class="bg-white rounded shadow">
 				<div class="flex items-baseline border-b border-grey p-3">
 					<h3 class="flex-1">
 						<slot name="title"></slot>

@@ -33,7 +33,7 @@ class Site extends Model
 	}
 
 	public function getOpenhours()
-	{
+	{	
 		return OpeningHours::create($this->openhours);
 	}
 

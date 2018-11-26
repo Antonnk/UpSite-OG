@@ -7,7 +7,9 @@ webpackJsonp([1,2],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api__ = __webpack_require__(221);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
@@ -24,9 +26,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     },
     site: {
       slug: undefined,
-      content: {},
-      openhours: {}
-    }
+      content: {}
+    },
+    openhours: {}
   },
   getters: {
     mode: function mode(state) {
@@ -40,11 +42,17 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     },
     slug: function slug(state) {
       return state.site.slug;
+    },
+    openhours: function openhours(state) {
+      return state.openhours;
     }
   },
   mutations: {
     setContent: function setContent(state, content) {
       return state.site.content = content;
+    },
+    setOpenhours: function setOpenhours(state, openhours) {
+      return state.openhours = openhours;
     },
     setModeBuild: function setModeBuild(state) {
       return state.mode = 'Build';
@@ -70,31 +78,40 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       if (state.mode == 'Build') return commit('setModeRender');
       return commit('setModeBuild');
     },
-    storeContent: function storeContent(_ref2) {
-      var state = _ref2.state,
-          commit = _ref2.commit;
+    setOpenhours: function setOpenhours(_ref2, openhours) {
+      var commit = _ref2.commit;
 
+      return commit('setOpenhours', openhours);
+    },
+    storeContent: function storeContent(_ref3) {
+      var state = _ref3.state,
+          commit = _ref3.commit;
+
+
+      var openhoursFormated = _extends({}, state.openhours, {
+        exceptions: state.openhoursExceptions
+      });
 
       __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].storeContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours,
-        theme: state.theme
+        theme: state.theme,
+        openhours: openhoursFormated
       }).then(function (res) {
         if (res.data.redirect) window.location.href = res.data.redirect;
       }).catch(function (error) {
         return console.error(error);
       });
     },
-    updateContent: function updateContent(_ref3) {
-      var state = _ref3.state,
-          commit = _ref3.commit;
+    updateContent: function updateContent(_ref4) {
+      var state = _ref4.state,
+          commit = _ref4.commit;
 
 
       __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].updateContent({
         name: state.site.content.name,
         content: state.site.content,
-        openhours: state.site.openhours,
+        openhours: state.openhours,
         theme: state.theme
       }).then(function (res) {
         console.log(res);
@@ -1054,7 +1071,7 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 220:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1073,15 +1090,15 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 221:
+/***/ 222:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(26)
+var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(252)
+var __vue_script__ = __webpack_require__(256)
 /* template */
-var __vue_template__ = __webpack_require__(253)
+var __vue_template__ = __webpack_require__(257)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1121,7 +1138,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 252:
+/***/ 256:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1224,7 +1241,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 253:
+/***/ 257:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {

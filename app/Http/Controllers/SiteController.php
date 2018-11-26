@@ -6,6 +6,7 @@ use App\Site;
 use App\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\OpeningHours\OpeningHours;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
 class SiteController extends Controller
@@ -22,13 +23,29 @@ class SiteController extends Controller
         } catch (Exception $e) {
             abort(404);
         }
+        
+        $default_openhours = [
+            'monday' => [ 'open' => null, 'close' => null],
+            'tuesday' => [ 'open' => null, 'close' => null],
+            'wednesday' => [ 'open' => null, 'close' => null],
+            'thursday' => [ 'open' => null, 'close' => null],
+            'friday' => [ 'open' => null, 'close' => null],
+            'saturday' => [ 'open' => null, 'close' => null],
+            'sunday' => [ 'open' => null, 'close' => null],
+            'exceptions' => [ 
+                // juleaften
+                '12-24' => ['open' => null, 'close' => null]
+            ]
+        ];
+
 
         $styleSheetPath = mix("css/$theme->slug.css");
 
         return view('build', [
             'styleSheetPath' => $styleSheetPath,
             'theme' => $theme->slug,
-            'content' => $theme->preset_content
+            'content' => $theme->preset_content,
+            'openhours' => $default_openhours,
         ]);
     }
 
@@ -46,6 +63,18 @@ class SiteController extends Controller
             'openhours' => 'array',
             'theme' => 'required|string'
         ]);
+
+        $openhours = $passedData['openhours'];
+
+        // foreach ($passedData['openhours'] as $key => $value) {
+        //     if($key != 'exceptions') {
+        //         $openhours[$key] = ($value['open'] && $value['close']) ? [$value['open']."-".$value['close']] : [];
+        //     }else {
+        //         foreach ($value as $key => $value) {
+        //             $openhours['exceptions'][$key] = ($value['open'] && $value['close']) ? [$value['open']."-".$value['close']] : [];
+        //         }
+        //     }
+        // }
             
         $theme = Theme::where('slug', strtolower($passedData['theme']))->first();
 
@@ -53,7 +82,7 @@ class SiteController extends Controller
             'slug' => strtolower(str_random(5)),
             'name' => $passedData['name'],
             'content' => $passedData['content'],
-            'openhours' => $passedData['openhours'],
+            'openhours' => $openhours,
             'user_id' =>  (Auth::check() ? Auth::id() : null),
             'theme_id' => $theme->id
         ]);
@@ -79,7 +108,8 @@ class SiteController extends Controller
         $site = Site::where('slug', $slug)->first();
         return view('render', [
             'theme' => $site->theme->slug,
-            'site' => $site
+            'site' => $site,
+            'structuredData' => $this->buildStructuredData($site)
         ]);
     }
 
@@ -111,7 +141,8 @@ class SiteController extends Controller
             'slug' => $site->slug,
             'styleSheetPath' => $styleSheetPath,
             'theme' => $site->theme->slug,
-            'content' => $site->content
+            'content' => $site->content,
+            'openhours' => $site->openhours
         ]);
     
     }
@@ -177,5 +208,33 @@ class SiteController extends Controller
             'background_color' => '#fff',
             'description' => $site->description,
         ]);
+    }
+
+    public function buildStructuredData($site)
+    {
+        return [
+            "@context" => "http://schema.org",
+            "@id" => $site->url(),
+            "name" => $site->name,
+            "address" => [
+                "@type" => "PostalAddress",
+                "streetAddress" => "148 W 51st St",
+                "addressLocality" => "New York",
+                "addressRegion" => "NY",
+                "postalCode" => "10019",
+                "addressCountry" => "US"
+            ],
+            "url" => $site->url(),
+            "telephone" => $site->content['contact']['phone'],
+            "openingHoursSpecification" => array_map(function($key, $day) {
+                return [
+                    "@type" => "OpeningHoursSpecification",
+                    "dayOfWeek" => $key,
+                    "opens" => $day['open'],
+                    "closes" => $day['close']
+                ];
+            }, array_keys($site->openhours), $site->openhours)
+            
+            ];
     }
 }

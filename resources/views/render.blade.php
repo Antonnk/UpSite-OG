@@ -15,6 +15,10 @@
         <div id="root">
             <site-render init-theme="{{ studly_case($theme) }}" :content="{{ json_encode($site->content) }}"></site-render>
         </div>
+        <script type="application/ld+json">
+          @json($structuredData)
+        </script>
+
         <script src="{{ mix('js/render.js') }}"></script>
     </body>
 </html>

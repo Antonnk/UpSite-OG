@@ -1,5 +1,5 @@
 <template>
-  <div id="toolbar" class="p-3 text-sm text-white fixed pin-t w-full z-50 border-b-2 border-yellow">
+  <div id="toolbar" class="p-3 text-sm text-white pin-t w-full z-50 border-b-2 border-yellow">
     <div class="container flex items-center justify-between mx-auto">
       <div>
         <b class="text-base mb-1 inline-block">
@@ -13,19 +13,32 @@
           <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
           Skift mode
         </button>
+        <button class="border-white btn flex items-center text-white mr-2" @click="openhoursVisable = true">
+          <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
+          Angiv Åbningstider
+        </button>
         <button class="border-white btn flex items-center text-white" @click="storeContent">
           <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 2C0 .9.9 0 2 0h14l4 4v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5 0v6h10V2H5zm6 1h3v4h-3V3z"/></svg>
           Gem Hjemmeside
         </button>
       </div>
     </div>
+    <modal v-if="openhoursVisable" @close="openhoursVisable = false">
+      <template slot="title">Åbningstider</template>
+      <openhours />
+    </modal>
   </div>
 </template>
 
 <script>
   import store from '../../store';
+  import Openhours from './Openhours';
+  import Modal from './Modal';
 
   export default {
+    data: vm => ({
+      openhoursVisable: false
+    }),
     methods: {
       toggleMode() {
         store.dispatch('toggleMode')
@@ -40,6 +53,10 @@
       },
       updateContent() {
       }
+    },
+    components: {
+      Openhours,
+      Modal
     }
   }
 </script>
