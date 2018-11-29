@@ -12,9 +12,9 @@ class ImageService
 	public function __construct()
 	{
 		\Cloudinary::config(array(
-		  "cloud_name" => env('CLOUDINARY_NAME'), 
-		  "api_key" => env('CLOUDINARY_API_KEY'), 
-		  "api_secret" => env('CLOUDINARY_API_SECRET') 
+		  "cloud_name" => config('upsite.cloudinary.name'), 
+		  "api_key" => config('upsite.cloudinary.api_key'), 
+		  "api_secret" => config('upsite.cloudinary.api_secret') 
 		));
 
 		$this->api = new \Cloudinary\Api();
