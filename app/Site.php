@@ -56,4 +56,9 @@ class Site extends Model
     {
         return $this->content['intro_image'];
     }
+
+    public function getCoverImageUrlAttribute()
+    {
+        return cloudinary_url($this->coverImage, ['cloud_name' => env('CLOUDINARY_NAME')]);
+    }
 }

@@ -37,12 +37,20 @@ h1, h2, h3 {
  */
 @tailwind utilities;
 
+.object-cover {
+	object-fit: cover;
+}
+
 .quick-info-container {
 	background: hsla(26, 16%, 9%, 0.43);
 	box-shadow: 0 -1px 0px hsla(38, 83%, 64%, 0.2);
-	&>div {
-		box-shadow: 1px 0px 0px rgba(239, 184, 87, .2);
+
+	@screen md {
+		&>div {
+			box-shadow: 1px 0px 0px rgba(239, 184, 87, .2);
+		}
 	}
+
 	&>div:last-of-type {
 		box-shadow: none;
 	} 

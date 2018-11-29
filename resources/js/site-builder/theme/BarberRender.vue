@@ -5,21 +5,21 @@
 			class="bg-cover bg-no-repeat flex flex-col justify-between min-h-screen"
 			:public-id="content.intro_image" 
 			:options="{ crop: 'fill', width: 1000, height: 600, effect: 'colorize:70', color: '#1b1613' }">
-				<div class="flex flex-1 items-center justify-center">
+				<div class="flex flex-1 items-center justify-center px-6">
 					<h1 class="text-center text-orange text-6xl">
 						{{ content.name }}
 					</h1>
 				</div>
-				<div class="flex py-8 px-6 quick-info-container">
-					<div class="text-center px-4 w-1/3">
+				<div class="flex flex-col md:flex-row py-8 px-6 quick-info-container">
+					<div class="text-center p-4 w-full md:w-1/3">
 						<h2 class="text-orange">Adresse</h2>
 						<address class="text-white font-semibold" v-html="content.contact.address"></address>
 					</div>
-					<div class="text-center px-4 w-1/3">
+					<div class="text-center p-4 w-full md:w-1/3">
 						<h2 class="text-orange">Telefon</h2>
 						<span class="text-white font-semibold" v-html="content.contact.phone"></span>
 					</div>
-					<div class="text-center px-4 w-1/3">
+					<div class="text-center p-4 w-full md:w-1/3">
 						<h2 class="text-orange">Åbningstider</h2>
 						<ul class="text-white font-semibold list-reset">
 							<li>Hverdage 09:00-17:00</li>
@@ -29,15 +29,15 @@
 				</div>
 			</cl-image>
 		</header>
-		<section class="flex">
-			<div class="w-2/5 flex">
+		<section class="flex-col md:flex-row flex">
+			<div class="md:w-2/5 h-48 md:h-auto flex">
 				<cl-image
-					class="w-full h-full"
+					class="w-full h-full object-cover"
 					:public-id="content.menu_image" 
 					:options="{ crop: 'fill', width: 600, height: 600 }"
 				/>
 			</div>
-			<div class="flex flex-col justify-center items-center p-16 w-3/5">
+			<div class="md:w-3/5 flex flex-col justify-center items-center p-8 md:p-16">
 				<h2 class="mb-5 text-5xl">
 					{{ content.title }}
 				</h2>
@@ -45,7 +45,7 @@
 			</div>
 		</section>
 
-		<section class="bg-orange-lightest">
+		<section class="bg-orange-lightest px-6">
 			<div class="container mx-auto">
 				<div class="flex justify-center py-20">
 					<div class="container">
@@ -67,7 +67,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="bg-black flex-1 py-16 text-white">
+		<section class="bg-black flex-1 py-16 px-6 text-white">
 			<div class="container mx-auto">
 				<div class="flex items-center mb-4 text-lg">
 					<svg class="fill-current text-orange mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path d="M18 2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h16zm-4.37 9.1L20 16v-2l-5.12-3.9L20 6V4l-10 8L0 4v2l5.12 4.1L0 14v2l6.37-4.9L10 14l3.63-2.9z"/></svg>

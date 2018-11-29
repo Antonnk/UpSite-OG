@@ -1,19 +1,25 @@
 <template>
-	<component :value="content" :is="setComponent"></component>
+	<component :is="setComponent"></component>
 </template>
 
 <script>
+	import store from '../store';
 	import LoadingComponent from './components/Loading.vue'
 	import ErrorComponent from './components/Error.vue'
 
 	export default {
 		props: {
 			initTheme: String,
-			content: Object
+			content: Object,
+			openhours: Object
 		},
 		data: vm => ({
 			theme: vm.initTheme,
 		}),
+		created() {
+			store.commit('setContent', this.content)
+			store.commit(`setOpenhours`, this.openhours)	
+		},
 		computed: {
 			setComponent() {
 				this.getMode; // call to evaluate mode before import

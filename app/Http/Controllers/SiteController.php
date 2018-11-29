@@ -221,7 +221,7 @@ class SiteController extends Controller
             "@type" => "LocalBusiness",
             "@id" => $site->url(),
             "name" => $site->name,
-            "image" => [cloudinary_url($site->coverImage, ['cloud_name' => env('CLOUDINARY_NAME')])],
+            "image" => [$site->coverImageUrl],
             "address" => [
                 "@type" => "PostalAddress",
                 "streetAddress" => "148 W 51st St",

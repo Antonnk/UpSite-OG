@@ -203,54 +203,61 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "flex py-8 px-6 quick-info-container" }, [
-              _c("div", { staticClass: "text-center px-4 w-1/3" }, [
-                _c("h2", { staticClass: "text-orange" }, [_vm._v("Adresse")]),
-                _vm._v(" "),
-                _c("address", {
-                  staticClass: "text-white font-semibold",
-                  domProps: { innerHTML: _vm._s(_vm.content.contact.address) }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-center px-4 w-1/3" }, [
-                _c("h2", { staticClass: "text-orange" }, [_vm._v("Telefon")]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "text-white font-semibold",
-                  domProps: { innerHTML: _vm._s(_vm.content.contact.phone) }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-center px-4 w-1/3" }, [
-                _c("h2", { staticClass: "text-orange" }, [
-                  _vm._v("Åbningstider")
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex flex-col md:flex-row py-8 px-6 quick-info-container"
+              },
+              [
+                _c("div", { staticClass: "text-center p-4 w-full md:w-1/3" }, [
+                  _c("h2", { staticClass: "text-orange" }, [_vm._v("Adresse")]),
+                  _vm._v(" "),
+                  _c("address", {
+                    staticClass: "text-white font-semibold",
+                    domProps: { innerHTML: _vm._s(_vm.content.contact.address) }
+                  })
                 ]),
                 _vm._v(" "),
-                _c(
-                  "ul",
-                  { staticClass: "text-white font-semibold list-reset" },
-                  [
-                    _c("li", [_vm._v("Hverdage 09:00-17:00")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Weekend 12:00-16:00")])
-                  ]
-                )
-              ])
-            ])
+                _c("div", { staticClass: "text-center p-4 w-full md:w-1/3" }, [
+                  _c("h2", { staticClass: "text-orange" }, [_vm._v("Telefon")]),
+                  _vm._v(" "),
+                  _c("span", {
+                    staticClass: "text-white font-semibold",
+                    domProps: { innerHTML: _vm._s(_vm.content.contact.phone) }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center p-4 w-full md:w-1/3" }, [
+                  _c("h2", { staticClass: "text-orange" }, [
+                    _vm._v("Åbningstider")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "text-white font-semibold list-reset" },
+                    [
+                      _c("li", [_vm._v("Hverdage 09:00-17:00")]),
+                      _vm._v(" "),
+                      _c("li", [_vm._v("Weekend 12:00-16:00")])
+                    ]
+                  )
+                ])
+              ]
+            )
           ]
         )
       ],
       1
     ),
     _vm._v(" "),
-    _c("section", { staticClass: "flex" }, [
+    _c("section", { staticClass: "flex-col md:flex-row flex" }, [
       _c(
         "div",
-        { staticClass: "w-2/5 flex" },
+        { staticClass: "md:w-2/5 h-48 md:h-auto flex" },
         [
           _c("cl-image", {
-            staticClass: "w-full h-full",
+            staticClass: "w-full h-full object-cover",
             attrs: {
               "public-id": _vm.content.menu_image,
               options: { crop: "fill", width: 600, height: 600 }
@@ -262,7 +269,10 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "flex flex-col justify-center items-center p-16 w-3/5" },
+        {
+          staticClass:
+            "md:w-3/5 flex flex-col justify-center items-center p-8 md:p-16"
+        },
         [
           _c("h2", { staticClass: "mb-5 text-5xl" }, [
             _vm._v("\n\t\t\t\t" + _vm._s(_vm.content.title) + "\n\t\t\t")
@@ -273,7 +283,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "bg-orange-lightest" }, [
+    _c("section", { staticClass: "bg-orange-lightest px-6" }, [
       _c("div", { staticClass: "container mx-auto" }, [
         _c("div", { staticClass: "flex justify-center py-20" }, [
           _c("div", { staticClass: "container" }, [
@@ -318,7 +328,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "bg-black flex-1 py-16 text-white" }, [
+    _c("section", { staticClass: "bg-black flex-1 py-16 px-6 text-white" }, [
       _c("div", { staticClass: "container mx-auto" }, [
         _c("div", { staticClass: "flex items-center mb-4 text-lg" }, [
           _c(
