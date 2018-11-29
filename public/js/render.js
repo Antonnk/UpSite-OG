@@ -29,7 +29,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		4: 0
+/******/ 		7: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -42908,9 +42908,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./CafeRender.vue": [
+	"./BarberRender.vue": [
 		222,
-		1
+		3
+	],
+	"./CafeRender.vue": [
+		223,
+		2
 	]
 };
 function webpackAsyncContext(req) {

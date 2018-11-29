@@ -29,9 +29,9 @@ class CacheProfile extends BaseCacheProfile
 
     public function cacheNameSuffix(Request $request): string
     {
-        if (\Auth::check()) {
-            return \Auth::user()->id;
-        }
+        // if (\Auth::check()) {
+        //     return \Auth::user()->id;
+        // }
 
         if(count(explode('.', $request->getHost())) == 3) {
             return array_first(explode('.', $request->getHost()));

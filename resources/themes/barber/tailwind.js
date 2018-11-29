@@ -46,28 +46,14 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 let colors = {
   'transparent': 'transparent',
 
-  'black': '#22292f',
+  'orange': 'hsla(38, 83%, 64%, 1)',
+  'orange-lightest': 'hsl(26, 37%, 96%)',
+
+  'black': 'hsl(26, 16%, 9%)',
   'grey-dark': '#8795a1',
   'grey': '#b8c2cc',
   'grey-light': '#dae1e7',
-  'grey-lighter': '#f1f5f8',
-  'grey-lightest': '#f8fafc',
   'white': '#ffffff',
-
-  'brown' : 'brown',
-
-  'red-dark': '#cc1f1a',
-  'red': '#e3342f',
-  'red-light': '#ef5753',
-
-  'yellow-darker': '#684f1d',
-  'yellow-dark': '#f2d024',
-  'yellow': '#FFCC00',
-  'yellow-light': '#fff382',
-  'yellow-lighter': '#fff9c2',
-
-  'blue': '#1F0059',
-
 }
 
 module.exports = {
@@ -111,7 +97,6 @@ module.exports = {
     'sm': '576px',
     'md': '768px',
     'lg': '992px',
-    'xl': '1200px',
   },
 
 
@@ -135,7 +120,7 @@ module.exports = {
 
   fonts: {
     'sans': [
-      'Poppins',
+      'Rubik',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -150,7 +135,7 @@ module.exports = {
       'sans-serif',
     ],
     'serif': [
-      'Constantia',
+      'Teko',
       'Lucida Bright',
       'Lucidabright',
       'Lucida Serif',
@@ -201,6 +186,7 @@ module.exports = {
     '3xl': '1.875rem',  // 30px
     '4xl': '2.25rem',   // 36px
     '5xl': '3rem',      // 48px
+    '6xl': '3.5rem',
   },
 
 

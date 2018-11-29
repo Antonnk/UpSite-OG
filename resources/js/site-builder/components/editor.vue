@@ -18,6 +18,7 @@ export default {
   },
   mounted() {
     this.editor = new MediumEditor(this.$el, {
+      spellcheck: false,
       toolbar: false,
       placeholder: {
         text : this.placeholder
@@ -37,6 +38,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 	@import '//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css';
+
+  .medium-editor-element {
+    min-height: 20px !important;
+    display: inline-block;
+  }
+
+  .placeholder-right.medium-editor-placeholder:after {
+    right: 0;
+    left: initial;
+  }
 </style>

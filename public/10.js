@@ -1,4 +1,4 @@
-webpackJsonp([2,4],{
+webpackJsonp([10,12],{
 
 /***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -8,6 +8,8 @@ webpackJsonp([2,4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api__ = __webpack_require__(221);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
@@ -43,9 +45,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     },
     openhours: function openhours(state) {
       return state.openhours;
-    },
-    setTheme: function setTheme(state) {
-      return state.theme;
     }
   },
   mutations: {
@@ -89,11 +88,15 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
           commit = _ref3.commit;
 
 
+      var openhoursFormated = _extends({}, state.openhours, {
+        exceptions: state.openhoursExceptions
+      });
+
       __WEBPACK_IMPORTED_MODULE_2__api__["a" /* default */].storeContent({
         name: state.site.content.name,
         content: state.site.content,
         theme: state.theme,
-        openhours: state.openhours
+        openhours: openhoursFormated
       }).then(function (res) {
         if (res.data.redirect) window.location.href = res.data.redirect;
       }).catch(function (error) {
@@ -1087,15 +1090,15 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 223:
+/***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(269)
+var __vue_script__ = __webpack_require__(279)
 /* template */
-var __vue_template__ = __webpack_require__(270)
+var __vue_template__ = __webpack_require__(280)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1112,7 +1115,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/site-builder/theme/CafeRender.vue"
+Component.options.__file = "resources/js/site-builder/theme/BarberRender.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1121,9 +1124,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1b012665", Component.options)
+    hotAPI.createRecord("data-v-66799724", Component.options)
   } else {
-    hotAPI.reload("data-v-1b012665", Component.options)
+    hotAPI.reload("data-v-66799724", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1135,7 +1138,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 269:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1238,7 +1241,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 270:
+/***/ 280:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1457,7 +1460,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1b012665", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-66799724", module.exports)
   }
 }
 

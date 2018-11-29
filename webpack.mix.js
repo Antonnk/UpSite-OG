@@ -12,7 +12,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/landing.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/themes/cafe/style.scss', 'public/css/cafe.css')
-    .sass('resources/themes/bakery/style.scss', 'public/css/bakery.css')
+    .sass('resources/themes/barber/style.scss', 'public/css/barber.css')
    .tailwind();
 
 Mix.listen('configReady', function (config) {
@@ -22,8 +22,8 @@ Mix.listen('configReady', function (config) {
             tailwindPath: 'resources/themes/cafe/tailwind.js'
         },
         {
-            resourcePath: 'resources/themes/bakery/style.scss',
-            tailwindPath: 'resources/themes/bakery/tailwind.js'
+            resourcePath: 'resources/themes/barber/style.scss',
+            tailwindPath: 'resources/themes/barber/tailwind.js'
         },
     ].forEach(addition => {
 

@@ -23,7 +23,8 @@ export default new Vuex.Store({
     content: state => state.site.content,
     status: state => state.status,
     slug: state => state.site.slug,
-    openhours: state => state.openhours
+    openhours: state => state.openhours,
+    setTheme: state => state.theme,
   },
   mutations: {
     setContent: (state, content) => state.site.content = content,
@@ -44,16 +45,11 @@ export default new Vuex.Store({
     },
     storeContent({state, commit}) {
 
-      const openhoursFormated = {
-        ...state.openhours,
-        exceptions: state.openhoursExceptions
-      }
-
       Api.storeContent({
         name: state.site.content.name,
         content: state.site.content,
         theme: state.theme,
-        openhours: openhoursFormated,
+        openhours: state.openhours,
       })
       .then(res => {
         if(res.data.redirect) window.location.href = res.data.redirect;

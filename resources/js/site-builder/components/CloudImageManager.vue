@@ -1,4 +1,6 @@
 <script>
+  import store from '../../store'
+
   export default {
     props: ['value', 'options'],
     data: vm =>  ({
@@ -13,7 +15,7 @@
         this.$emit('input', this.public_id)
       },
       chooseImage() {
-        axios.get('/images/cafe')
+        axios.get('/images/'+store.getters.theme)
         .then(response => {
           this.modalVisable = true
           this.images = response.data.images;

@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([6],{
 
 /***/ 255:
 /***/ (function(module, exports, __webpack_require__) {
@@ -6,9 +6,9 @@ webpackJsonp([1],{
 var disposed = false
 var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(271)
+var __vue_script__ = __webpack_require__(258)
 /* template */
-var __vue_template__ = __webpack_require__(272)
+var __vue_template__ = __webpack_require__(269)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -25,7 +25,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/site-builder/theme/BarberBuild.vue"
+Component.options.__file = "resources/js/site-builder/theme/CafeBuild.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -34,9 +34,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a51ec560", Component.options)
+    hotAPI.createRecord("data-v-67ecbc22", Component.options)
   } else {
-    hotAPI.reload("data-v-a51ec560", Component.options)
+    hotAPI.reload("data-v-67ecbc22", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48,25 +48,198 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_editor_vue__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_editor_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_editor_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Modal_vue__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Modal_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data(vm) {
+		return {
+			content: __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.content
+		};
+	},
+	components: {
+		editor: __WEBPACK_IMPORTED_MODULE_1__components_editor_vue___default.a,
+		editorRepeater: __WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue___default.a,
+		CloudImageManager: __WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue___default.a,
+		Modal: __WEBPACK_IMPORTED_MODULE_4__components_Modal_vue___default.a
+	}
+});
+
+/***/ }),
+
+/***/ 259:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(280)
+  __webpack_require__(260)
 }
 var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(260)
+var __vue_script__ = __webpack_require__(262)
 /* template */
-var __vue_template__ = __webpack_require__(282)
+var __vue_template__ = __webpack_require__(264)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-00b3820a"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -101,11 +274,53 @@ module.exports = Component.exports
 /***/ }),
 
 /***/ 260:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(261);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(219)("2f64372e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00b3820a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./editor.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00b3820a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./editor.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 261:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(218)(false);
+// imports
+exports.push([module.i, "@import url(//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css);", ""]);
+
+// module
+exports.push([module.i, "\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 262:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_medium_editor__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_medium_editor__ = __webpack_require__(263);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_medium_editor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_medium_editor__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -131,7 +346,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     var _this = this;
 
     this.editor = new __WEBPACK_IMPORTED_MODULE_0_medium_editor___default.a(this.$el, _extends({
-      spellcheck: false,
       toolbar: false,
       placeholder: {
         text: this.placeholder
@@ -151,7 +365,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /***/ }),
 
-/***/ 261:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
@@ -8053,13 +8267,34 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
 
 /***/ }),
 
-/***/ 263:
+/***/ 264:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("span", { class: { "placeholder-right": this.placeholderRight } })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-00b3820a", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(264)
+var __vue_script__ = __webpack_require__(266)
 /* template */
 var __vue_template__ = null
 /* template functional */
@@ -8101,7 +8336,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 264:
+/***/ 266:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8162,13 +8397,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /***/ }),
 
-/***/ 265:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(266)
+var __vue_script__ = __webpack_require__(268)
 /* template */
 var __vue_template__ = null
 /* template functional */
@@ -8210,14 +8445,11 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 266:
+/***/ 268:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(210);
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['value', 'options'],
@@ -8237,7 +8469,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     chooseImage: function chooseImage() {
       var _this = this;
 
-      axios.get('/images/' + __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.theme).then(function (response) {
+      axios.get('/images/cafe').then(function (response) {
         _this.modalVisable = true;
         _this.images = response.data.images;
       });
@@ -8264,756 +8496,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 271:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_editor_vue__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_editor_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_editor_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Modal_vue__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Modal_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data(vm) {
-		return {
-			content: __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.content
-		};
-	},
-	components: {
-		editor: __WEBPACK_IMPORTED_MODULE_1__components_editor_vue___default.a,
-		editorRepeater: __WEBPACK_IMPORTED_MODULE_2__components_editorRepeater_vue___default.a,
-		CloudImageManager: __WEBPACK_IMPORTED_MODULE_3__components_CloudImageManager_vue___default.a,
-		Modal: __WEBPACK_IMPORTED_MODULE_4__components_Modal_vue___default.a
-	}
-});
-
-/***/ }),
-
-/***/ 272:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", { staticClass: "h-screen font-sans" }, [
-    _c(
-      "header",
-      [
-        _c("cloud-image-manager", {
-          scopedSlots: _vm._u([
-            {
-              key: "default",
-              fn: function(ref) {
-                var chooseImage = ref.chooseImage
-                var images = ref.images
-                var public_id = ref.public_id
-                var setImage = ref.setImage
-                var modalVisable = ref.modalVisable
-                var hideModal = ref.hideModal
-                return _c(
-                  "div",
-                  { staticClass: "relative" },
-                  [
-                    _c(
-                      "cl-image",
-                      {
-                        staticClass:
-                          "bg-cover bg-no-repeat flex flex-col justify-between min-h-screen",
-                        attrs: {
-                          "public-id": _vm.content.intro_image,
-                          options: {
-                            crop: "fill",
-                            width: 1000,
-                            height: 600,
-                            effect: "colorize:70",
-                            color: "#1b1613"
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex flex-1 items-center justify-center"
-                          },
-                          [
-                            _c(
-                              "h1",
-                              {
-                                staticClass: "text-center text-orange text-6xl"
-                              },
-                              [
-                                _c("editor", {
-                                  attrs: { options: { disableReturn: true } },
-                                  model: {
-                                    value: _vm.content.name,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.content, "name", $$v)
-                                    },
-                                    expression: "content.name"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "flex py-8 px-6 quick-info-container"
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "text-center px-4 w-1/3" },
-                              [
-                                _c("h2", { staticClass: "text-orange" }, [
-                                  _vm._v("Adresse")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "address",
-                                  { staticClass: "text-white font-semibold" },
-                                  [
-                                    _c("editor", {
-                                      model: {
-                                        value: _vm.content.contact.address,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.content.contact,
-                                            "address",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "content.contact.address"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "text-center px-4 w-1/3" },
-                              [
-                                _c("h2", { staticClass: "text-orange" }, [
-                                  _vm._v("Telefon")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  { staticClass: "text-white font-semibold" },
-                                  [
-                                    _c("editor", {
-                                      model: {
-                                        value: _vm.content.contact.phone,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.content.contact,
-                                            "phone",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "content.contact.phone"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "text-center px-4 w-1/3" },
-                              [
-                                _c("h2", { staticClass: "text-orange" }, [
-                                  _vm._v("Åbningstider")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "ul",
-                                  {
-                                    staticClass:
-                                      "text-white font-semibold list-reset"
-                                  },
-                                  [
-                                    _c("li", [_vm._v("Hverdage 09:00-17:00")]),
-                                    _vm._v(" "),
-                                    _c("li", [_vm._v("Weekend 12:00-16:00")])
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "absolute pin-t pin-r btn bg-white m-4 mt-20",
-                        on: { click: chooseImage }
-                      },
-                      [_vm._v("Vælg Billede")]
-                    ),
-                    _vm._v(" "),
-                    images.length && modalVisable
-                      ? _c(
-                          "modal",
-                          { on: { close: hideModal } },
-                          [
-                            _c("template", { slot: "title" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\tVælg et cover billede\n\t\t\t\t\t"
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex flex-row flex-wrap" },
-                              _vm._l(images, function(image) {
-                                return _c(
-                                  "div",
-                                  {
-                                    key: image.public_id,
-                                    staticClass: "mr-2 cursor-pointer",
-                                    on: {
-                                      click: function($event) {
-                                        setImage(image.public_id)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("cl-image", {
-                                      attrs: {
-                                        "public-id": image.public_id,
-                                        options: {
-                                          aspectRatio: "1:1",
-                                          crop: "fill",
-                                          width: 100
-                                        }
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              })
-                            )
-                          ],
-                          2
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
-              }
-            }
-          ]),
-          model: {
-            value: _vm.content.intro_image,
-            callback: function($$v) {
-              _vm.$set(_vm.content, "intro_image", $$v)
-            },
-            expression: "content.intro_image"
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("section", { staticClass: "flex" }, [
+  return _c(
+    "main",
+    { staticClass: "bg-brown-lighter h-screen flex flex-col" },
+    [
       _c(
-        "div",
-        { staticClass: "w-2/5 flex" },
+        "header",
+        {
+          staticClass:
+            "container mx-auto flex py-6 items-baseline justify-between flex-no-shrink"
+        },
         [
-          _c("cloud-image-manager", {
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function(ref) {
-                  var chooseImage = ref.chooseImage
-                  var images = ref.images
-                  var public_id = ref.public_id
-                  var setImage = ref.setImage
-                  var modalVisable = ref.modalVisable
-                  var hideModal = ref.hideModal
-                  return _c(
-                    "div",
-                    { staticClass: "relative flex-1" },
-                    [
-                      _c("cl-image", {
-                        staticClass: "w-full",
-                        attrs: {
-                          "public-id": _vm.content.menu_image,
-                          options: { crop: "fill", width: 600, height: 600 }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "absolute pin-t pin-r btn bg-white m-4",
-                          on: { click: chooseImage }
-                        },
-                        [_vm._v("Vælg Billede")]
-                      ),
-                      _vm._v(" "),
-                      images.length && modalVisable
-                        ? _c(
-                            "modal",
-                            { on: { close: hideModal } },
-                            [
-                              _c("template", { slot: "title" }, [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\tVælg et cover billede\n\t\t\t\t\t\t"
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "flex flex-row flex-wrap" },
-                                _vm._l(images, function(image) {
-                                  return _c(
-                                    "div",
-                                    {
-                                      key: image.public_id,
-                                      staticClass: "mr-2 cursor-pointer",
-                                      on: {
-                                        click: function($event) {
-                                          setImage(image.public_id)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("cl-image", {
-                                        attrs: {
-                                          "public-id": image.public_id,
-                                          options: {
-                                            aspectRatio: "1:1",
-                                            crop: "fill",
-                                            width: 100
-                                          }
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                })
-                              )
-                            ],
-                            2
-                          )
-                        : _vm._e()
-                    ],
-                    1
-                  )
-                }
-              }
-            ]),
-            model: {
-              value: _vm.content.menu_image,
-              callback: function($$v) {
-                _vm.$set(_vm.content, "menu_image", $$v)
-              },
-              expression: "content.menu_image"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex flex-col justify-center items-center p-16 w-3/5" },
-        [
-          _c(
-            "h2",
-            { staticClass: "mb-5 text-5xl" },
-            [
-              _c("editor", {
-                model: {
-                  value: _vm.content.title,
-                  callback: function($$v) {
-                    _vm.$set(_vm.content, "title", $$v)
-                  },
-                  expression: "content.title"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "p",
-            [
-              _c("editor", {
-                model: {
-                  value: _vm.content.intro,
-                  callback: function($$v) {
-                    _vm.$set(_vm.content, "intro", $$v)
-                  },
-                  expression: "content.intro"
-                }
-              })
-            ],
-            1
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("section", { staticClass: "bg-orange-lightest" }, [
-      _c("div", { staticClass: "container mx-auto" }, [
-        _c("div", { staticClass: "flex justify-center py-20" }, [
-          _c(
-            "div",
-            { staticClass: "container" },
-            [
-              _c(
-                "h2",
-                { staticClass: "text-5xl mb-6 text-center" },
-                [
-                  _c("editor", {
-                    attrs: { options: { disableReturn: true } },
-                    model: {
-                      value: _vm.content.menu_title,
-                      callback: function($$v) {
-                        _vm.$set(_vm.content, "menu_title", $$v)
-                      },
-                      expression: "content.menu_title"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("editorRepeater", {
-                attrs: { "item-schema": { name: "", price: "" } },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(ref) {
-                      var items = ref.items
-                      var addRow = ref.addRow
-                      var removeRow = ref.removeRow
-                      return _c(
-                        "ul",
-                        { staticClass: "list-reset" },
-                        [
-                          _vm._l(items, function(item, index) {
-                            return _c(
-                              "li",
-                              {
-                                key: item._key,
-                                staticClass:
-                                  "border-b border-orange flex mb-3 py-3"
-                              },
-                              [
-                                _c(
-                                  "p",
-                                  { staticClass: "flex-1 text-lg" },
-                                  [
-                                    _c("editor", {
-                                      attrs: {
-                                        options: { disableReturn: true }
-                                      },
-                                      model: {
-                                        value: item.name,
-                                        callback: function($$v) {
-                                          _vm.$set(item, "name", $$v)
-                                        },
-                                        expression: "item.name"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "text-right text-lg font-bold"
-                                  },
-                                  [
-                                    _c("editor", {
-                                      attrs: {
-                                        placeholder: "pris",
-                                        "placeholder-right": "",
-                                        options: { disableReturn: true }
-                                      },
-                                      model: {
-                                        value: item.price,
-                                        callback: function($$v) {
-                                          _vm.$set(item, "price", $$v)
-                                        },
-                                        expression: "item.price"
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("kr")])
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn ml-2",
-                                    on: {
-                                      click: function($event) {
-                                        removeRow(index)
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Fjern")]
-                                )
-                              ]
-                            )
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            { staticClass: "btn", on: { click: addRow } },
-                            [_vm._v("Tilføj menupunkt")]
-                          )
-                        ],
-                        2
-                      )
-                    }
-                  }
-                ]),
-                model: {
-                  value: _vm.content.menu,
-                  callback: function($$v) {
-                    _vm.$set(_vm.content, "menu", $$v)
-                  },
-                  expression: "content.menu"
-                }
-              })
-            ],
-            1
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("section", { staticClass: "bg-black flex-1 py-16 text-white" }, [
-      _c("div", { staticClass: "container mx-auto" }, [
-        _c(
-          "div",
-          { staticClass: "flex items-center mb-4 text-lg" },
-          [
+          _c("div", { staticClass: "flex-1" }, [
             _c(
               "svg",
               {
-                staticClass: "fill-current text-orange mr-2",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  width: "24",
-                  height: "24",
-                  viewBox: "0 0 20 20"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M18 2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h16zm-4.37 9.1L20 16v-2l-5.12-3.9L20 6V4l-10 8L0 4v2l5.12 4.1L0 14v2l6.37-4.9L10 14l3.63-2.9z"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("editor", {
-              attrs: { options: { disableReturn: true } },
-              model: {
-                value: _vm.content.contact.email,
-                callback: function($$v) {
-                  _vm.$set(_vm.content.contact, "email", $$v)
-                },
-                expression: "content.contact.email"
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex items-center mb-4 text-lg" },
-          [
-            _c(
-              "svg",
-              {
-                staticClass: "fill-current text-orange mr-2",
+                staticClass: "fill-current text-green",
                 attrs: {
                   xmlns: "http://www.w3.org/2000/svg",
                   width: "24",
@@ -9031,28 +8536,10 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("editor", {
-              attrs: { options: { disableReturn: true } },
-              model: {
-                value: _vm.content.social.facebook,
-                callback: function($$v) {
-                  _vm.$set(_vm.content.social, "facebook", $$v)
-                },
-                expression: "content.social.facebook"
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex items-center mb-4 text-lg" },
-          [
             _c(
               "svg",
               {
-                staticClass: "fill-current text-orange mr-2",
+                staticClass: "fill-current text-green",
                 attrs: {
                   xmlns: "http://www.w3.org/2000/svg",
                   width: "24",
@@ -9068,95 +8555,549 @@ var render = function() {
                   }
                 })
               ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        {
+          staticClass: "container mx-auto flex items-start flex-no-shrink py-4"
+        },
+        [
+          _c("div", { staticClass: "w-1/2 pr-3" }, [
+            _c(
+              "h1",
+              { staticClass: "flex-1 text-green text-4xl" },
+              [
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.name,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content, "name", $$v)
+                    },
+                    expression: "content.name"
+                  }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
-            _c("editor", {
-              attrs: { options: { disableReturn: true } },
-              model: {
-                value: _vm.content.social.instagram,
-                callback: function($$v) {
-                  _vm.$set(_vm.content.social, "instagram", $$v)
-                },
-                expression: "content.social.instagram"
-              }
-            })
-          ],
-          1
-        )
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "h2",
+              { staticClass: "text-brown mb-1" },
+              [
+                _c("editor", {
+                  model: {
+                    value: _vm.content.title,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content, "title", $$v)
+                    },
+                    expression: "content.title"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _c("editor", {
+                  model: {
+                    value: _vm.content.intro,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content, "intro", $$v)
+                    },
+                    expression: "content.intro"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex justify-end w-1/2" },
+            [
+              _c("cloud-image-manager", {
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var chooseImage = ref.chooseImage
+                      var images = ref.images
+                      var public_id = ref.public_id
+                      var setImage = ref.setImage
+                      var modalVisable = ref.modalVisable
+                      var hideModal = ref.hideModal
+                      return _c(
+                        "div",
+                        { staticClass: "relative" },
+                        [
+                          _c("cl-image", {
+                            staticClass: "border-b-8 border-r-8 border-brown",
+                            attrs: {
+                              "public-id": _vm.content.intro_image,
+                              options: { crop: "fill", width: 400, height: 400 }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "absolute pin-t pin-r btn bg-white m-1",
+                              on: { click: chooseImage }
+                            },
+                            [_vm._v("Vælg Billede")]
+                          ),
+                          _vm._v(" "),
+                          images.length && modalVisable
+                            ? _c(
+                                "modal",
+                                { on: { close: hideModal } },
+                                [
+                                  _c("template", { slot: "title" }, [
+                                    _vm._v(
+                                      "\n\t\t\t\t\t\t\tVælg et cover billede\n\t\t\t\t\t\t"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "flex flex-row flex-wrap" },
+                                    _vm._l(images, function(image) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: image.public_id,
+                                          staticClass: "mr-2 cursor-pointer",
+                                          on: {
+                                            click: function($event) {
+                                              setImage(image.public_id)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("cl-image", {
+                                            attrs: {
+                                              "public-id": image.public_id,
+                                              options: {
+                                                aspectRatio: "1:1",
+                                                crop: "fill",
+                                                width: 100
+                                              }
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    })
+                                  )
+                                ],
+                                2
+                              )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    }
+                  }
+                ]),
+                model: {
+                  value: _vm.content.intro_image,
+                  callback: function($$v) {
+                    _vm.$set(_vm.content, "intro_image", $$v)
+                  },
+                  expression: "content.intro_image"
+                }
+              })
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("section", { staticClass: "bg-brown-light text-green mt-12" }, [
+        _c("div", { staticClass: "container mx-auto" }, [
+          _c("div", { staticClass: "flex" }, [
+            _c("div", { staticClass: "flex flex-col w-2/3 py-12" }, [
+              _c(
+                "h2",
+                { staticClass: "text-4xl mb-4" },
+                [
+                  _c("editor", {
+                    attrs: { options: { disableReturn: true } },
+                    model: {
+                      value: _vm.content.menu_title,
+                      callback: function($$v) {
+                        _vm.$set(_vm.content, "menu_title", $$v)
+                      },
+                      expression: "content.menu_title"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c("editorRepeater", {
+                    attrs: { "item-schema": { name: "", price: "" } },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var items = ref.items
+                          var addRow = ref.addRow
+                          var removeRow = ref.removeRow
+                          return _c(
+                            "ul",
+                            { staticClass: "list-reset flex-1 w-1/2" },
+                            [
+                              _vm._l(items, function(item, index) {
+                                return _c(
+                                  "li",
+                                  { key: item._key, staticClass: "flex mb-2" },
+                                  [
+                                    _c(
+                                      "p",
+                                      { staticClass: "flex-1" },
+                                      [
+                                        _c("editor", {
+                                          attrs: {
+                                            options: { disableReturn: true }
+                                          },
+                                          model: {
+                                            value: item.name,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "name", $$v)
+                                            },
+                                            expression: "item.name"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      [
+                                        _c("editor", {
+                                          attrs: {
+                                            placeholder: "pris",
+                                            "placeholder-right": "",
+                                            options: { disableReturn: true }
+                                          },
+                                          model: {
+                                            value: item.price,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "price", $$v)
+                                            },
+                                            expression: "item.price"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn ml-2",
+                                        on: {
+                                          click: function($event) {
+                                            removeRow(index)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Fjern")]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                { staticClass: "btn", on: { click: addRow } },
+                                [_vm._v("Tilføj menupunkt")]
+                              )
+                            ],
+                            2
+                          )
+                        }
+                      }
+                    ]),
+                    model: {
+                      value: _vm.content.menu,
+                      callback: function($$v) {
+                        _vm.$set(_vm.content, "menu", $$v)
+                      },
+                      expression: "content.menu"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex flex-1 w-1/3" },
+              [
+                _c("cloud-image-manager", {
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(ref) {
+                        var chooseImage = ref.chooseImage
+                        var images = ref.images
+                        var public_id = ref.public_id
+                        var setImage = ref.setImage
+                        var modalVisable = ref.modalVisable
+                        var hideModal = ref.hideModal
+                        return _c(
+                          "div",
+                          { staticClass: "relative flex-1" },
+                          [
+                            _c(
+                              "cl-image",
+                              {
+                                staticClass:
+                                  "bg-cover bg-no-repeat h-full w-full",
+                                attrs: {
+                                  options: {
+                                    crop: "scale",
+                                    width: 500,
+                                    effect: "colorize:50",
+                                    color: "#f2e3b4"
+                                  },
+                                  "public-id": _vm.content.menu_image
+                                }
+                              },
+                              [_c("i")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "absolute pin-t pin-r btn bg-white m-1",
+                                on: { click: chooseImage }
+                              },
+                              [_vm._v("Vælg Billede")]
+                            ),
+                            _vm._v(" "),
+                            images.length && modalVisable
+                              ? _c(
+                                  "modal",
+                                  { on: { close: hideModal } },
+                                  [
+                                    _c("template", { slot: "title" }, [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\tVælg et cover billede\n\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "flex flex-row flex-wrap"
+                                      },
+                                      _vm._l(images, function(image) {
+                                        return _c(
+                                          "div",
+                                          {
+                                            key: image.public_id,
+                                            staticClass: "mr-2 cursor-pointer",
+                                            on: {
+                                              click: function($event) {
+                                                setImage(image.public_id)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("cl-image", {
+                                              attrs: {
+                                                "public-id": image.public_id,
+                                                options: {
+                                                  aspectRatio: "1:1",
+                                                  crop: "fill",
+                                                  width: 100
+                                                }
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      })
+                                    )
+                                  ],
+                                  2
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      }
+                    }
+                  ]),
+                  model: {
+                    value: _vm.content.menu_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content, "menu_image", $$v)
+                    },
+                    expression: "content.menu_image"
+                  }
+                })
+              ],
+              1
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "bg-green text-brown-light flex-1" }, [
+        _c("div", { staticClass: "container mx-auto py-12 mb-12 flex" }, [
+          _c("div", { staticClass: "flex-1" }, [
+            _c("h2", { staticClass: "mb-2" }, [_vm._v("Her kan du finde os")]),
+            _vm._v(" "),
+            _c(
+              "address",
+              [
+                _c("editor", {
+                  model: {
+                    value: _vm.content.contact.address,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.contact, "address", $$v)
+                    },
+                    expression: "content.contact.address"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "span",
+              [
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.contact.email,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.contact, "email", $$v)
+                    },
+                    expression: "content.contact.email"
+                  }
+                })
+              ],
+              1
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "span",
+              [
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.contact.phone,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.contact, "phone", $$v)
+                    },
+                    expression: "content.contact.phone"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.social.instagram,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.social, "instagram", $$v)
+                    },
+                    expression: "content.social.instagram"
+                  }
+                }),
+                _vm._v(" "),
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.social.facebook,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.social, "facebook", $$v)
+                    },
+                    expression: "content.social.facebook"
+                  }
+                }),
+                _vm._v(" "),
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.social.twitter,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.social, "twitter", $$v)
+                    },
+                    expression: "content.social.twitter"
+                  }
+                }),
+                _vm._v(" "),
+                _c("editor", {
+                  attrs: { options: { disableReturn: true } },
+                  model: {
+                    value: _vm.content.social.snapchat,
+                    callback: function($$v) {
+                      _vm.$set(_vm.content.social, "snapchat", $$v)
+                    },
+                    expression: "content.social.snapchat"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex-1" })
+        ])
       ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "flex-1 text-right text-green" }, [
+      _vm._v("Idag åben til "),
+      _c("b", [_vm._v("18:00")])
     ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a51ec560", module.exports)
   }
-}
-
-/***/ }),
-
-/***/ 280:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(281);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(219)("46c68e70", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00b3820a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./editor.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00b3820a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./editor.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 281:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(218)(false);
-// imports
-exports.push([module.i, "@import url(//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css);", ""]);
-
-// module
-exports.push([module.i, "\n.medium-editor-element[data-v-00b3820a] {\n  min-height: 20px !important;\n  display: inline-block;\n}\n.placeholder-right.medium-editor-placeholder[data-v-00b3820a]:after {\n  right: 0;\n  left: initial;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 282:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("span", { class: { "placeholder-right": this.placeholderRight } })
-}
-var staticRenderFns = []
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-00b3820a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-67ecbc22", module.exports)
   }
 }
 

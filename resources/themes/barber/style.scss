@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i|Teko:400,500,600,700');
+
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -21,6 +23,9 @@
  */
 @tailwind components;
 
+h1, h2, h3 {
+	@apply font-serif;
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -31,3 +36,14 @@
  * @import "tailwindcss/utilities";
  */
 @tailwind utilities;
+
+.quick-info-container {
+	background: hsla(26, 16%, 9%, 0.43);
+	box-shadow: 0 -1px 0px hsla(38, 83%, 64%, 0.2);
+	&>div {
+		box-shadow: 1px 0px 0px rgba(239, 184, 87, .2);
+	}
+	&>div:last-of-type {
+		box-shadow: none;
+	} 
+}

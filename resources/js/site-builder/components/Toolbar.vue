@@ -1,5 +1,5 @@
 <template>
-  <div id="toolbar" class="p-3 text-sm text-white pin-t w-full z-50 border-b-2 border-yellow">
+  <div id="toolbar" class="absolute p-3 text-sm text-white pin-t w-full z-50 border-b-2 border-yellow">
     <div class="container flex items-center justify-between mx-auto">
       <div>
         <b class="text-base mb-1 inline-block">

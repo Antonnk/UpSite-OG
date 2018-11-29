@@ -6,7 +6,6 @@ use App\Site;
 use App\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\OpeningHours\OpeningHours;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
 class SiteController extends Controller
@@ -25,16 +24,18 @@ class SiteController extends Controller
         }
         
         $default_openhours = [
-            'monday' => [ 'open' => null, 'close' => null],
-            'tuesday' => [ 'open' => null, 'close' => null],
-            'wednesday' => [ 'open' => null, 'close' => null],
-            'thursday' => [ 'open' => null, 'close' => null],
-            'friday' => [ 'open' => null, 'close' => null],
-            'saturday' => [ 'open' => null, 'close' => null],
-            'sunday' => [ 'open' => null, 'close' => null],
+            'weekdays' => [
+                [ 'name' => 'monday', 'open' => null, 'close' => null],
+                [ 'name' => 'tuesday', 'open' => null, 'close' => null],
+                [ 'name' => 'wednesday', 'open' => null, 'close' => null],
+                [ 'name' => 'thursday', 'open' => null, 'close' => null],
+                [ 'name' => 'friday', 'open' => null, 'close' => null],
+                [ 'name' => 'saturday', 'open' => null, 'close' => null],
+                [ 'name' => 'sunday', 'open' => null, 'close' => null],
+            ],
             'exceptions' => [ 
                 // juleaften
-                '12-24' => ['open' => null, 'close' => null]
+                [ 'name' => '12-24', 'open' => null, 'close' => null]
             ]
         ];
 
@@ -65,16 +66,6 @@ class SiteController extends Controller
         ]);
 
         $openhours = $passedData['openhours'];
-
-        // foreach ($passedData['openhours'] as $key => $value) {
-        //     if($key != 'exceptions') {
-        //         $openhours[$key] = ($value['open'] && $value['close']) ? [$value['open']."-".$value['close']] : [];
-        //     }else {
-        //         foreach ($value as $key => $value) {
-        //             $openhours['exceptions'][$key] = ($value['open'] && $value['close']) ? [$value['open']."-".$value['close']] : [];
-        //         }
-        //     }
-        // }
             
         $theme = Theme::where('slug', strtolower($passedData['theme']))->first();
 
@@ -212,10 +203,25 @@ class SiteController extends Controller
 
     public function buildStructuredData($site)
     {
+        $openingHoursSpecification = array_filter($site->openhours['weekdays'], function($day) {
+            if($day['open'] == null) return false;
+            return true;
+        });
+        $openingHoursSpecification = array_map(function($day) {
+            return [
+                "@type" => "OpeningHoursSpecification",
+                "dayOfWeek" => $day['name'],
+                "opens" => $day['open'],
+                "closes" => $day['close']
+            ];
+        }, $openingHoursSpecification);
+
         return [
             "@context" => "http://schema.org",
+            "@type" => "LocalBusiness",
             "@id" => $site->url(),
             "name" => $site->name,
+            "image" => [cloudinary_url($site->coverImage, ['cloud_name' => env('CLOUDINARY_NAME')])],
             "address" => [
                 "@type" => "PostalAddress",
                 "streetAddress" => "148 W 51st St",
@@ -226,14 +232,7 @@ class SiteController extends Controller
             ],
             "url" => $site->url(),
             "telephone" => $site->content['contact']['phone'],
-            "openingHoursSpecification" => array_map(function($key, $day) {
-                return [
-                    "@type" => "OpeningHoursSpecification",
-                    "dayOfWeek" => $key,
-                    "opens" => $day['open'],
-                    "closes" => $day['close']
-                ];
-            }, array_keys($site->openhours), $site->openhours)
+            "openingHoursSpecification" => $openingHoursSpecification
             
             ];
     }

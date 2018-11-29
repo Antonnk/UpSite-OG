@@ -1,6 +1,6 @@
 <template>
 	<portal to="modal">
-		<div id="overlay" class="fixed flex h-screen items-center justify-center pin-t w-screen">
+		<div id="overlay" class="fixed flex h-screen items-start justify-center pin-t pt-24 w-screen">
 			<div class="bg-white rounded shadow">
 				<div class="flex items-baseline border-b border-grey p-3">
 					<h3 class="flex-1">

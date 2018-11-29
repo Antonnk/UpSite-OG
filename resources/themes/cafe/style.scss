@@ -14,16 +14,6 @@
  */
 @tailwind preflight;
 
-.medium-editor-element {
-	min-height: 20px !important;
-	display: inline-block;
-}
-
-.placeholder-right.medium-editor-placeholder:after {
-	right: 0;
-	left: initial;
-}
-
 h1, h2 {
 	@apply font-display tracking-wide;
 }

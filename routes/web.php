@@ -8,7 +8,7 @@ Route::domain('{slug}.'.config('app.domain'))->group(function () {
 Route::post('/sites', 'SiteController@store');
 Route::delete('/sites/{slug}', 'SiteController@destroy');
 Route::put('/sites/{slug}/claim', 'SiteController@claim');
-Route::put('/sites/{slug}', 'SiteController@update');
+Route::put('/sites/{slug}', 'SiteController@update')->middleware('auth');
 Route::get('/sites/{slug}/rediger','SiteController@edit')->middleware('auth')->name('site.edit');
 
 
