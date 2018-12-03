@@ -15,6 +15,13 @@ import store from './store'
 Vue.use(Vuex)
 Vue.use(PortalVue)
 
+Vue.filter('striphtml', function (value) {
+  var div = document.createElement("div");
+  div.innerHTML = value;
+  var text = div.textContent || div.innerText || "";
+  return text;
+});
+
 Vue.component('cl-image', require('./components/CloudImage.vue'))
 Vue.component('site-builder', require('./site-builder/index.vue'))
 

@@ -9,7 +9,7 @@
 						:options="{ crop: 'fill', width: 1000, height: 600, effect: 'colorize:70', color: '#1b1613' }"
 					>
 						<div class="flex flex-1 items-center justify-center px-6">
-							<h1 class="text-center text-orange text-6xl">
+							<h1 class="text-center text-orange text-6xl word-break">
 								<editor :options="{disableReturn: true}" v-model="content.name" />
 							</h1>
 						</div>
@@ -32,6 +32,14 @@
 									<li>Hverdage 09:00-17:00</li>
 									<li>Weekend 12:00-16:00</li>
 								</ul>
+								<button class="border-white btn flex items-center text-white mx-auto" @click="openhoursVisable = true">
+						          <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
+						          Angiv Åbningstider
+						        </button>
+								<modal v-if="openhoursVisable" @close="openhoursVisable = false">
+							      <template slot="title">Åbningstider</template>
+							      <openhours />
+							    </modal>
 							</div>
 						</div>
 
@@ -90,11 +98,11 @@
 					</div>
 				</cloud-image-manager>
 			</div>
-			<div class="md:w-3/5 flex flex-col justify-center items-center p-8 md:p-16">
-				<h2 class="mb-5 text-5xl">
+			<div class="md:w-3/5 flex flex-col justify-center p-8 md:p-16">
+				<h2 class="mb-5 text-5xl word-break">
 					<editor v-model="content.title" />
 				</h2>
-				<p>
+				<p class="word-break">
 					<editor v-model="content.intro" />
 				</p>
 			</div>
@@ -151,16 +159,19 @@
 	import editorRepeater from '../components/editorRepeater.vue'
 	import CloudImageManager from '../components/CloudImageManager.vue'
 	import Modal from '../components/Modal.vue'
+	import Openhours from '../components/Openhours.vue'
 
 	export default {
 		data: vm => ({
-			content: store.getters.content
+			content: store.getters.content,
+			openhoursVisable: false
 		}),
 		components: {
 			editor,
 			editorRepeater,
 			CloudImageManager,
-			Modal
+			Modal,
+			Openhours
 		}
 	}
 </script>

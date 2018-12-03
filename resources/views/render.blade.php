@@ -31,7 +31,7 @@
     </head>
     <body>
         <div id="root">
-            <site-render init-theme="{{ studly_case($theme) }}" :content='{!! json_encode($site->content) !!}' :openhours='@json($site->openhours)'></site-render>
+            <site-render init-theme="{{ studly_case($theme) }}" :content='@json($site->content)' :openhours='@json($site->openhours)'></site-render>
         </div>
         <script type="application/ld+json">
           @json($structuredData)

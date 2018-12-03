@@ -27,6 +27,10 @@ h1, h2, h3 {
 	@apply font-serif;
 }
 
+.word-break {
+	word-break: break-word;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

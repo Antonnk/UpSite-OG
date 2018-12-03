@@ -3,6 +3,7 @@
 		<toolbar/>
 		<component :is="setComponent"></component>
 		<portal-target name="modal"></portal-target>
+		<toast/>
 	</div>
 </template>
 
@@ -11,6 +12,7 @@
 	import LoadingComponent from './components/Loading.vue'
 	import ErrorComponent from './components/Error.vue'
 	import Toolbar from './components/Toolbar.vue'
+	import Toast from './components/Toast.vue'
 	import Modal from './components/Modal.vue'
 
 	export default {
@@ -58,7 +60,8 @@
 		},
 		components: {
 			Toolbar,
-			Modal
+			Modal,
+			Toast
 		}
 	}
 </script>

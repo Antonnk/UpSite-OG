@@ -224,7 +224,7 @@ class SiteController extends Controller
             "image" => [$site->coverImageUrl],
             "address" => [
                 "@type" => "PostalAddress",
-                "streetAddress" => "148 W 51st St",
+                "streetAddress" => $site->content['contact']['address'],
                 "addressLocality" => "New York",
                 "addressRegion" => "NY",
                 "postalCode" => "10019",

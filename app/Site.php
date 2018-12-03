@@ -49,7 +49,7 @@ class Site extends Model
 
     public function getDescriptionAttribute()
     {
-        return $this->content['intro'];
+        return strip_tags($this->content['intro']);
     }
 
 	public function getCoverImageAttribute()

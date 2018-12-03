@@ -45,14 +45,20 @@
       },
       storeContent() {
         if(window.slug) {
-          console.log(window.slug)
           return store.dispatch('updateContent')
         }
 
         store.dispatch('storeContent')
       },
-      updateContent() {
-      }
+    },
+    mounted() {
+      // save om cmd+s of ctrl+s
+      document.addEventListener("keydown", (e) => {
+        if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
+          e.preventDefault();
+          this.storeContent()
+        }
+      }, false);
     },
     components: {
       Openhours,
