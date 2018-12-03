@@ -18,7 +18,7 @@
 <body class=" font-sans @yield('body-class')">
     <div id="root">
         <div class="min-h-screen">
-            <header class="container flex mx-auto relative z-50 py-8 mb-8">
+            <header class="container flex mx-auto relative z-50 py-8 mb-8 md:px-0 px-6">
                 <h2 title="Upsite">
                     <a href="/">
                         <span class="hidden">UpSite</span>
@@ -26,8 +26,13 @@
                     </a>
                 </h2>
                 
-                <nav class="flex-1 main-nav">
-                    <ul class="flex justify-end list-reset text-blue font-medium">
+                <nav class="flex-1 flex justify-end main-nav">
+                    {{-- flex justify-end list-reset text-blue font-medium --}}
+                    <button class="flex font-bold items-center md:hidden text-blue text-lg">
+                        <svg class="fill-current mr-1 text-blue w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+                        Menu
+                    </button>
+                    <ul class="pin bg-yellow fixed md:relative md:bg-transparent md:flex-row md:text-base md:font-medium md:justify-end md:flex hidden justify-center font-bold flex-col items-center list-reset text-3xl text-blue">
                         <li class="{{ request()->url() == route('build.overview') ? 'active' : '' }}">
                             <a class="ml-8 no-underline text-blue" href="{{ route('build.overview') }}">Byg din side</a>
                         </li>
@@ -55,7 +60,7 @@
             @endif
 
             @hasSection('content')
-                <div class="container mx-auto">
+                <div class="container mx-auto md:px-0 px-6">
                     @yield('content')
                 </div>
             @endif

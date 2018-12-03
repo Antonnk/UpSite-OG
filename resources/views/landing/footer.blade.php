@@ -2,8 +2,8 @@
     <div id="footer-border"></div>
 
 
-    <div class="flex container mx-auto pt-8 pb-12 justify-between">
-        <div class="flex-1">
+    <div class="sm:flex-row md:px-0 px-6 flex-col flex container mx-auto pt-8 pb-12 justify-between">
+        <div class="flex-1 mb-6">
             @include('landing.logo-negative')
             <p class="text-blue-lightest">
                 Vej 55<br>
@@ -11,8 +11,8 @@
                 cvr. 123456
             </p>
         </div>
-        <div class="flex flex-1 justify-between">
-            <div class="ml-6">
+        <div class="flex flex-wrap flex-1 justify-between">
+            <div class="sm:ml-6 ml-0 mb-6">
                 <h2>Information</h2>
                 <ul class="list-reset text-sm leading-normal">
                     <li>
@@ -27,7 +27,7 @@
                 </ul>
             </div>
 
-            <div class="ml-6">
+            <div class="sm:ml-6 ml-0 mb-6">
                 <h2>Kundeservice</h2>
                 <ul class="list-reset text-sm leading-normal">
                     <li>
@@ -45,7 +45,7 @@
                 </ul>
             </div>
 
-            <div class="ml-6">
+            <div class="sm:ml-6 ml-0 mb-6">
                 <h2>Min konto</h2>
                 <ul class="list-reset text-sm leading-normal">
                     <li>
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="bg-blue-dark py-8">
-        <div class="container mx-auto">
+        <div class="container mx-auto md:px-0 px-6">
             <p>Copyright 2018 © UpSite IVS - Alle rettigheder reserveret</p>
         </div>
     </div>

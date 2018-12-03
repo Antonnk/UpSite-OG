@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="flex flex-col items-center">
-    <div class="bg-blue text-white flex-col inline-flex p-8 pt-12 w-1/3">
+    <div class="bg-blue text-white flex-col inline-flex p-8 pt-12 w-full sm:w-1/2 md:w-1/3">
         <form class="flex flex-col items-center" method="POST" action="{{ route('login') }}">
             @csrf
 

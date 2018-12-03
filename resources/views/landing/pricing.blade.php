@@ -4,7 +4,7 @@
 
 @section('content')
 	<main class="flex items-baseline justify-center">
-		<div class="inline-flex">
+		<div class="flex-col mb-24 inline-flex md:flex-row md:mb-10">
 			<div class="pt-10">
 				<div class="bg-yellow text-blue p-6">
 					<i>Startpakken</i>

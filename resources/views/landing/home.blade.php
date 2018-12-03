@@ -12,7 +12,7 @@
 		    </div>
 		</div>
 		<div>
-			<div class="container mx-auto">
+			<div class="container mx-auto md:px-0 px-6">
 				<div class="text-blue z-10">
 				    <h1 class="mb-4 text-5xl">Giv din virksomhed<br/> en digital stemme</h1>
 				    <p class="font-semibold">
@@ -25,4 +25,3 @@
 		</div>
 	</main>
 @endsection
-
