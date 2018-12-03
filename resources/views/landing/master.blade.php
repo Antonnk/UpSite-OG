@@ -7,20 +7,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="description" content="Opret en synlig & brugervenlig hjemmeside på under 5 minutter! Ingen teknisk viden påkrævet.">
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" type="text/css">
+    <link async href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,900" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link async href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class=" font-sans @yield('body-class')">
     <div id="root">
         <div class="min-h-screen">
             <header class="container flex mx-auto relative z-50 py-8 mb-8 md:px-0 px-6">
                 <h2 title="Upsite">
-                    <a href="/">
+                    <a href="/" title="home">
                         <span class="hidden">UpSite</span>
                         @include('landing.logo')
                     </a>
@@ -32,7 +33,7 @@
                         <svg class="fill-current mr-1 text-blue w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
                         Menu
                     </button>
-                    <button @click="menuVisable = !menuVisable" v-show="menuVisable" class="z-50 flex font-bold items-center md:hidden text-blue text-3xl">&times;</button>
+                    <button @click="menuVisable = !menuVisable" v-show="menuVisable" class="z-50 px-2 flex font-bold items-center md:hidden text-blue text-3xl">&times;</button>
                     <ul :class="{ 'flex' : menuVisable }" class="pin bg-yellow fixed md:relative md:bg-transparent md:flex-row md:text-base md:font-medium md:justify-end md:flex hidden justify-center font-bold flex-col items-center list-reset text-3xl text-blue">
                         <li class="mb-8 md:mb-0 {{ request()->url() == route('build.overview') ? 'active' : '' }}">
                             <a class="ml-0 md:ml-8 no-underline text-blue" href="{{ route('build.overview') }}">Byg din side</a>

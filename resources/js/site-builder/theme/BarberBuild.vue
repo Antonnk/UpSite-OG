@@ -8,16 +8,21 @@
 						:public-id="content.intro_image" 
 						:options="{ crop: 'fill', width: 1000, height: 600, effect: 'colorize:70', color: '#1b1613' }"
 					>
-						<div class="flex flex-1 items-center justify-center px-6">
+						<div class="flex flex-col flex-1 items-center justify-center px-6">
 							<h1 class="text-center text-orange text-6xl word-break">
 								<editor :options="{disableReturn: true}" v-model="content.name" />
 							</h1>
+							<h2 class="font-light text-2xl text-center text-orange word-break max-w-xs">
+								<editor :options="{disableReturn: true}" v-model="content.title" />
+							</h2>
 						</div>
 						<div class="flex flex-col md:flex-row py-8 px-6 quick-info-container">
 							<div class="text-center p-4 w-full md:w-1/3">
 								<h2 class="text-orange">Adresse</h2>
 								<address class="text-white font-semibold">
-									<editor v-model="content.contact.address" />
+									<editor v-model="content.contact.address.street" /><br>
+									<editor class="no-icon" v-model="content.contact.address.postcode" />
+									<editor class="no-icon" v-model="content.contact.address.city" />
 								</address>
 							</div>
 							<div class="text-center p-4 w-full md:w-1/3">
@@ -100,7 +105,7 @@
 			</div>
 			<div class="md:w-3/5 flex flex-col justify-center p-8 md:p-16">
 				<h2 class="mb-5 text-5xl word-break">
-					<editor v-model="content.title" />
+					<editor v-model="content.intro_title" />
 				</h2>
 				<p class="word-break">
 					<editor v-model="content.intro" />

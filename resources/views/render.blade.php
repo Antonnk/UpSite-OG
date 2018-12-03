@@ -10,7 +10,7 @@
         <meta property="og:title"              content="{{ $site->name }}" />
         <meta property="og:description"        content="{{ $site->description }}" />
         <meta property="og:image"              content="{{ $site->coverImageurl }}" />
-        <meta property="business:contact_data:street_address" content="{{ $site->content['contact']['address'] }}" /> 
+        <meta property="business:contact_data:street_address" content="{{ $site->addressString() }}" /> 
         <meta property="business:contact_data:email " content="{{ $site->content['contact']['email'] }}" /> 
         <meta property="business:contact_data:phone_number" content="{{ $site->content['contact']['phone'] }}" /> 
         <meta property="business:contact_data:website" content="{{ $site->url() }}" /> 

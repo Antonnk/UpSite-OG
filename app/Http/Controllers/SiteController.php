@@ -224,11 +224,10 @@ class SiteController extends Controller
             "image" => [$site->coverImageUrl],
             "address" => [
                 "@type" => "PostalAddress",
-                "streetAddress" => $site->content['contact']['address'],
-                "addressLocality" => "New York",
-                "addressRegion" => "NY",
-                "postalCode" => "10019",
-                "addressCountry" => "US"
+                "streetAddress" => $site->content['contact']['address']['street'],
+                "addressLocality" => $site->content['contact']['address']['city'],
+                "postalCode" => $site->content['contact']['address']['postcode'],
+                "addressCountry" => "DK"
             ],
             "url" => $site->url(),
             "telephone" => $site->content['contact']['phone'],

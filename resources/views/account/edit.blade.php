@@ -46,6 +46,7 @@
 		</div>
 		<div class="flex mb-4">
 			<button class="btn mr-3" type="submit">Gem Oplysninger</button>
+			<a href="{{ route('account.index') }}" class="btn btn-white mr-3">Annuller</a>
 		</div>
 	</form>
 @endSection

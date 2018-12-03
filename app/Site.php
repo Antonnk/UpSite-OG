@@ -32,11 +32,6 @@ class Site extends Model
 		return route('site.show', ['slug' => $this->slug]);
 	}
 
-	public function getOpenhours()
-	{	
-		return OpeningHours::create($this->openhours);
-	}
-
 	public function owner()
 	{
 		return $this->belongsTo(User::class, 'user_id');
@@ -47,9 +42,19 @@ class Site extends Model
 		return $this->belongsTo(Theme::class, 'theme_id');
 	}
 
+	public function addressString()
+    {
+    	return $this->content['contact']['address']['street']." ".$this->content['contact']['address']['postcode']." ".$this->content['contact']['address']['city'];
+    }
+
     public function getDescriptionAttribute()
     {
         return strip_tags($this->content['intro']);
+    }
+
+    public function getTitleAttribute()
+    {
+        return strip_tags($this->content['title']);
     }
 
 	public function getCoverImageAttribute()
@@ -60,5 +65,15 @@ class Site extends Model
     public function getCoverImageUrlAttribute()
     {
         return cloudinary_url($this->coverImage, ['cloud_name' => config('upsite.cloudinary.name')]);
+    }
+
+    public function getWeekdaysAttribute()
+    {
+        $weekdays = collect($this->openhours['weekdays']);
+		
+		return $weekdays->map(function ($item) {
+		    $item['name'] = config("upsite.weekdays.{$item['name']}");
+		    return $item;
+		});
     }
 }

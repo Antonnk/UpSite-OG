@@ -48,7 +48,6 @@
 			if(this.clName !== '') this.cl.config({cloud_name: this.clName})
 
 			this.containerTag = (this.isContainer ? this.tag : 'img')
-
 		}
 	}
 </script>

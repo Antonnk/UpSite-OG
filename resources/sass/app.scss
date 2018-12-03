@@ -25,7 +25,7 @@
 	@apply font-bold inline-flex no-underline px-6 py-4 rounded-full text-white bg-blue cursor-pointer;
 
 	&.btn-white {
-		@apply font-bold inline-flex no-underline px-6 py-4 rounded-full text-blue bg-white cursor-pointer;		
+		@apply bg-grey-lightest text-blue;		
 	}
 
 	&.btn-sm {

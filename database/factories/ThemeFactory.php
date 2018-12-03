@@ -10,27 +10,32 @@ $factory->define(App\Theme::class, function (Faker $faker) {
         'name' => $name,
         'description' => $faker->text(),
         'preset_content' => [
-        	'name' => $company,
-            'title' => $faker->sentence,
+        	'name' => "Dit firmanavn",
+            'title' => "Dit slogan eller en kort tagline.",
             'menu' => [
                 ['name' => $faker->text(20), 'price' => $faker->randomNumber(2)],
                 ['name' => $faker->text(50), 'price' => $faker->randomNumber(2)],
                 ['name' => $faker->text(15), 'price' => $faker->randomNumber(2)],
             ], 
-            'intro' => $faker->text(), 
+            'intro_title' => "Hvem er i og hvad tilbyder i?",
+            'intro' => "En uddybende tekst om hvem i er og hvad i tilbyder.",
             'intro_image'=> 'cafe/karl-fredrickson-35017-unsplash',
             'menu_image'=> 'cafe/nafinia-putra-59655-unsplash',
-            'menu_title'=> $faker->word,
+            'menu_title'=> "Vi tilbyder",
             'contact' => [
-                'address' => $faker->address,
-                'phone' => $faker->phoneNumber,
-                'email' => $faker->safeEmail
+                'address' => [
+                    'street' => $faker->streetName.' '.$faker->buildingNumber,
+                    'city' => $faker->city,
+                    'postcode' => $faker->randomNumber(4)
+                ],
+                'phone' => $faker->randomNumber(8),
+                'email' => 'mail@dinemail.dk'
             ],
             'social' => [
-                'instagram' => '@'.str_slug($company),
-                'facebook' => '/'.str_slug($company),
-                'twitter' => '@'.str_slug($company),
-                'snapchat' => str_slug($company)
+                'instagram' => '@instagramBrugernavn',
+                'facebook' => '/facebookLink',
+                'twitter' => '@twitterBrugernavn',
+                'snapchat' => 'SnapchatBrugernavn'
             ]
         ]
     ];

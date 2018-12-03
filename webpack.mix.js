@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 let Path = require('path');
+require('laravel-mix-purgecss');
 
 let tailwind = require('tailwindcss');
 
@@ -13,7 +14,8 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/themes/cafe/style.scss', 'public/css/cafe.css')
     .sass('resources/themes/barber/style.scss', 'public/css/barber.css')
-   .tailwind();
+    .purgeCss()
+    .tailwind();
 
 Mix.listen('configReady', function (config) {
     [

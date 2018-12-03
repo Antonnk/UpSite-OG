@@ -17,7 +17,8 @@
                         <b class="block mb-2 text-lg">{{ $site->name }}</b>
                         <p class="mb-2">{{ str_limit($site->content['intro'], 75, '...') }}</p>
                         <p class="font-medium">
-                            {{ $site->content['contact']['address'] }}
+                            {{ $site->content['contact']['address']['street'] }} <br>
+                            {{ $site->content['contact']['address']['postcode'] }} {{ $site->content['contact']['address']['city'] }}
                         </p>
                     </div>
                 </div>
