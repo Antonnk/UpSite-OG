@@ -42572,7 +42572,10 @@ window.Vue = __webpack_require__(46);
 Vue.component('cl-image', __webpack_require__(97));
 
 var app = new Vue({
-    el: '#root'
+    el: '#root',
+    data: {
+        menuVisable: false
+    }
 });
 
 /***/ })
