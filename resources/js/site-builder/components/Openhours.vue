@@ -19,7 +19,7 @@
         </tabs>
     </div>
     <hr>
-    <button @click="updateOpenhours" class="btn">Gem</button>
+    <button @click="updateOpenhours" class="btn btn-sm">Gem</button>
   </div>
 </template>
 
@@ -39,6 +39,7 @@
          weekdays: this.weekdays, 
          exceptions: this.exceptions
        })
+        store.commit('toggleOpenhoursModalVisable')
       },
       translateDayName(dayName) {
         return {
@@ -64,14 +65,14 @@
   }
 
   .tabs-component-tab {
-    @apply border border-grey-light border-t-0 flex-1 py-2 text-center;
+    @apply border border-grey-light border-t-0 flex-1 text-center;
   }
   .tabs-component-tab.is-active {
     @apply border-b-0;
   } 
 
   .tabs-component-tab-a {
-    @apply no-underline text-grey-dark;
+    @apply no-underline text-grey-dark flex justify-center py-2 text-center w-full;
   }
 
   .is-active .tabs-component-tab-a  {

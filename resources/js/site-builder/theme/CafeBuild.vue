@@ -29,7 +29,7 @@
 							:public-id="content.intro_image" 
 							:options="{ crop: 'fill', width: 400, height: 400 }"
 						/>
-						<button @click="chooseImage" class="absolute pin-t pin-r btn bg-white m-1">Vælg Billede</button>
+						<button @click="chooseImage" class="absolute pin-t pin-r btn btn-sm btn-white bg-white m-4">Vælg Billede</button>
 						<modal v-if="images.length && modalVisable" v-on:close="hideModal">
 							<template slot="title">
 								Vælg et cover billede
@@ -59,19 +59,20 @@
 						<h2 class="text-4xl mb-4">
 							<editor :options="{disableReturn: true}" v-model="content.menu_title" />
 						</h2>
-						<div>
+						<div class="mr-16">
 							<editorRepeater v-model="content.menu" :item-schema="{name: '', price: ''}">
-								<ul class="list-reset flex-1 w-1/2" slot-scope="{ items, addRow, removeRow }">
+								<ul class="list-reset flex-1" slot-scope="{ items, addRow, removeRow }">
 									<li class="flex mb-2" v-for="(item, index) in items" :key="item._key">
 										<p class="flex-1">
 											<editor :options="{disableReturn:true}" v-model="item.name"/>
 										</p>
-										<p>
+										<b>
 											<editor placeholder="pris" placeholder-right :options="{disableReturn:true}" v-model="item.price" />
-										</p>
-										<button class="btn ml-2" @click="removeRow(index)">Fjern</button> 
+										</b>
+										<b>kr</b>
+										<button class="btn btn-sm btn-white ml-2" @click="removeRow(index)">Fjern</button> 
 									</li>
-									<button class="btn" @click="addRow">Tilføj menupunkt</button>
+									<button class="btn btn-sm btn-white" @click="addRow">Tilføj menupunkt</button>
 								</ul>
 							</editorRepeater>
 						</div>
@@ -85,7 +86,7 @@
 									:public-id="content.menu_image">
 									<i></i>
 								</cl-image>
-								<button @click="chooseImage" class="absolute pin-t pin-r btn bg-white m-1">Vælg Billede</button>
+								<button @click="chooseImage" class="absolute pin-t pin-r btn btn-sm btn-white bg-white m-4">Vælg Billede</button>
 								<modal v-if="images.length && modalVisable" v-on:close="hideModal">
 									<template slot="title">
 										Vælg et cover billede
@@ -115,15 +116,18 @@
 				<div class="flex-1">
 					<h2 class="mb-2">Her kan du finde os</h2>
 					<address>
-						<editor v-model="content.contact.address" />
+						<editor v-model="content.contact.address.street" /><br>
+						<editor class="no-icon" v-model="content.contact.address.postcode" />
+						<editor class="no-icon" v-model="content.contact.address.city" />
 					</address>
+					<br>
 					<span><editor :options="{disableReturn: true}" v-model="content.contact.email" /></span><br>
 					<span><editor :options="{disableReturn: true}" v-model="content.contact.phone" /></span>
+					<br>
+					<br>
 					<p>
-						<editor :options="{disableReturn: true}" v-model="content.social.instagram" />
+						<editor :options="{disableReturn: true}" v-model="content.social.instagram" /><br>
 						<editor :options="{disableReturn: true}" v-model="content.social.facebook" />
-						<editor :options="{disableReturn: true}" v-model="content.social.twitter" />
-						<editor :options="{disableReturn: true}" v-model="content.social.snapchat" />
 					</p>
 				</div>
 				<div class="flex-1">

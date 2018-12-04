@@ -9,6 +9,7 @@ export default new Vuex.Store({
     mode: 'Build',
     theme: false,
     status: [],
+    openhoursModalVisable: false,
     site: {
       slug: undefined,
       content: {},
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     openhours: {}
   },
   getters: {
+    openhoursModalVisable: state => state.openhoursModalVisable,
     mode: state => state.mode,
     content: state => state.site.content,
     status: state => state.status,
@@ -24,6 +26,7 @@ export default new Vuex.Store({
     theme: state => state.theme,
   },
   mutations: {
+    toggleOpenhoursModalVisable: (state) => state.openhoursModalVisable = !state.openhoursModalVisable,
     setContent: (state, content) => state.site.content = content,
     setOpenhours: (state, openhours) => state.openhours = openhours,
   	setModeBuild: state => state.mode = 'Build',

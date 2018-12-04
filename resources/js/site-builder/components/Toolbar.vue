@@ -1,6 +1,6 @@
 <template>
-  <div id="toolbar" class="absolute p-3 text-sm text-white pin-t w-full z-50 border-b-2 border-yellow">
-    <div class="container flex items-center justify-between mx-auto">
+  <div id="toolbar" class="p-3 text-sm text-white w-full z-50 border-b-2 border-yellow">
+    <div class="px-16 flex items-center justify-between mx-auto">
       <div>
         <b class="text-base mb-1 inline-block">
           <svg class="w-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/></svg>
@@ -9,21 +9,21 @@
         <p>Du er nu i tilpassings-mode, her kan du ændre alle tekster og billeder på hele siden</p>
       </div>  
       <div class="flex">
-        <button class="border-white btn flex items-center text-white mr-2" @click="toggleMode">
+        <button class="border-white btn btn-sm flex items-center text-white mr-2" @click="toggleMode">
           <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
           Skift mode
         </button>
-        <button class="border-white btn flex items-center text-white mr-2" @click="openhoursVisable = true">
+        <button class="border-white btn btn-sm flex items-center text-white mr-2" @click="toggleOpenhoursModalVisable">
           <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
           Angiv Åbningstider
         </button>
-        <button class="border-white btn flex items-center text-white" @click="storeContent">
+        <button class="border-white btn btn-sm flex items-center text-white" @click="storeContent">
           <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 2C0 .9.9 0 2 0h14l4 4v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5 0v6h10V2H5zm6 1h3v4h-3V3z"/></svg>
           Gem Hjemmeside
         </button>
       </div>
     </div>
-    <modal v-if="openhoursVisable" @close="openhoursVisable = false">
+    <modal v-if="openhoursModalVisable" @close="toggleOpenhoursModalVisable">
       <template slot="title">Åbningstider</template>
       <openhours />
     </modal>
@@ -36,12 +36,17 @@
   import Modal from './Modal';
 
   export default {
-    data: vm => ({
-      openhoursVisable: false
-    }),
+    computed: {
+      openhoursModalVisable() {
+        return store.getters.openhoursModalVisable
+      }
+    },
     methods: {
       toggleMode() {
         store.dispatch('toggleMode')
+      },
+      toggleOpenhoursModalVisable() {
+        store.commit('toggleOpenhoursModalVisable')
       },
       storeContent() {
         if(window.slug) {

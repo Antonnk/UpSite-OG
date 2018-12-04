@@ -42,7 +42,7 @@
                             <a class="ml-0 md:ml-8 no-underline text-blue" href="{{ route('pricing') }}">Priser</a>
                         </li>
                         <li class="mb-8 md:mb-0 {{ request()->url() == route('contact') ? 'active' : '' }}">
-                            <a class="ml-0 md:ml-8 no-underline text-blue" href="">Kontakt</a>
+                            <a class="ml-0 md:ml-8 no-underline text-blue" href="{{ route('contact') }}">Kontakt</a>
                         </li>
                         @if (Auth::check())
                             <li class="mb-8 md:mb-0 {{ request()->url() == route('account.index') ? 'active' : '' }}">

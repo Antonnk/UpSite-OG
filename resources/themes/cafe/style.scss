@@ -27,10 +27,6 @@ h1, h2 {
  */
 @tailwind components;
 
-.btn {
-	@apply border border-green cursor-pointer font-bold p-1 px-2 rounded text-green text-xs;
-}
-
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

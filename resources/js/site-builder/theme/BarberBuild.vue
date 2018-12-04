@@ -33,12 +33,12 @@
 							</div>
 							<div class="text-center p-4 w-full md:w-1/3">
 								<h2 class="text-orange">Åbningstider</h2>
-								<ul class="text-white font-semibold list-reset">
+								<!-- <ul class="text-white font-semibold list-reset">
 									<li>Hverdage 09:00-17:00</li>
 									<li>Weekend 12:00-16:00</li>
-								</ul>
-								<button class="border-white btn flex items-center text-white mx-auto" @click="openhoursVisable = true">
-						          <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
+								</ul> -->
+								<button class="border-white btn btn-sm btn-white flex items-center text-white mx-auto" @click="openhoursVisable = true">
+						          <svg class="fill-current mr-1 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
 						          Angiv Åbningstider
 						        </button>
 								<modal v-if="openhoursVisable" @close="openhoursVisable = false">
@@ -50,7 +50,7 @@
 
 					</cl-image>
 
-					<button @click="chooseImage" class="absolute pin-t pin-r btn bg-white m-4 mt-20">Vælg Billede</button>
+					<button @click="chooseImage" class="absolute pin-t pin-r btn btn-sm btn-white m-4">Vælg Billede</button>
 					<modal v-if="images.length && modalVisable" v-on:close="hideModal">
 						<template slot="title">
 							Vælg et cover billede
@@ -81,7 +81,7 @@
 							:public-id="content.menu_image" 
 							:options="{ crop: 'fill', width: 600, height: 600 }"
 						/>
-						<button @click="chooseImage" class="absolute pin-t pin-r btn bg-white m-4">Vælg Billede</button>
+						<button @click="chooseImage" class="absolute pin-t pin-r btn btn-sm btn-white m-4">Vælg Billede</button>
 						<modal v-if="images.length && modalVisable" v-on:close="hideModal">
 							<template slot="title">
 								Vælg et cover billede
@@ -130,9 +130,9 @@
 										<editor placeholder="pris" placeholder-right :options="{disableReturn:true}" v-model="item.price" />
 										<span>kr</span>
 									</p>
-									<button class="btn ml-2" @click="removeRow(index)">Fjern</button> 
+									<button class="btn btn-sm btn-white ml-2" @click="removeRow(index)">Fjern</button> 
 								</li>
-								<button class="btn" @click="addRow">Tilføj menupunkt</button>
+								<button class="btn btn-sm btn-white" @click="addRow">Tilføj menupunkt</button>
 							</ul>
 						</editorRepeater>
 					</div>

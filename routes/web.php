@@ -23,6 +23,7 @@ Route::delete('/images', 'ImageController@destroy');
 Route::get('/', 'LandingController@index')->name('landing');
 Route::get('/priser', 'LandingController@pricing')->name('pricing');
 Route::get('/kontakt', 'LandingController@contact')->name('contact');
+Route::post('/kontakt', 'LandingController@contactSend')->name('contact.send');
 
 Auth::routes();
 Route::get('/konto', 'AccountController@index')->name('account.index');

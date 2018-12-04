@@ -28,15 +28,16 @@
 				<div class="flex">
 					<div class="flex flex-col w-2/3 py-12">
 						<h2 class="text-4xl mb-4">{{ content.menu_title }}</h2>
-						<div>
-							<ul class="list-reset flex-1 w-1/2">
+						<div class="mr-16">
+							<ul class="list-reset flex-1">
 								<li class="flex mb-2" v-for="item in content.menu">
 									<span class="flex-1">
 										{{ item.name }}
 									</span> 
-									<span>
+									<b>
 										{{ item.price }}
-									</span>
+									</b>
+									<b>kr</b>
 								</li>
 							</ul>
 						</div>
@@ -56,14 +57,18 @@
 			<div class="container mx-auto py-12 mb-12 flex">
 				<div class="flex-1">
 					<h2 class="mb-2">Her kan du finde os</h2>
-					<address v-html="content.contact.address"></address>
+					<address>
+						{{ content.contact.address.street }}<br>
+						{{ content.contact.address.postcode }} {{ content.contact.address.city }}
+					</address>
+					<br>
 					<span>{{ content.contact.email }}</span><br>
 					<span>{{ content.contact.phone }}</span>
+					<br>
+					<br>
 					<p>
-						{{ content.social.instagram }}
+						{{ content.social.instagram }}<br>
 						{{ content.social.facebook }}
-						{{ content.social.twitter }}
-						{{ content.social.snapchat }}
 					</p>
 				</div>
 				<div class="flex-1">

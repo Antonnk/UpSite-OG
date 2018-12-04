@@ -12,7 +12,20 @@ class LandingController extends Controller
         return view('landing.home');
     }
 
+	public function contact()
+    {
+        return view('landing.contact');
+    }
 
+    public function contactSend(Request $request)
+    {
+    	$passedData = $request->validate([
+            'email' => 'required|max:250|email',
+            'message' => 'required|string|max:500'
+        ]);
+
+        return response()->json($passedData, 201);
+    }
     
     public function pricing()
     {
