@@ -4,16 +4,18 @@
         <tabs :options="{ useUrlFragment: false }">
             <tab name="Hverdage">
               <div class="flex items-center mb-3" v-for="day in weekdays">
-                <span class="flex w-24">{{ translateDayName(day.name) }}</span>
-                <input type="time" v-model="day.open" value="10:00" step="900" class="border p-1 px-2 mr-2 rounded w-24">
-                <input type="time" v-model="day.close" value="18:00" step="900" class="border p-1 px-2 mr-2 rounded w-24">
+                <div class="w-32">{{ translateDayName(day.name) }}</div>
+                <div class="flex">
+                  <input type="time" v-model="day.open" value="10:00" step="900" class="bg-grey-lighter input mx-3">
+                  <input type="time" v-model="day.close" value="18:00" step="900" class="bg-grey-lighter input mx-3">
+                </div>
               </div>
             </tab>
             <tab name="Helligdage">
               <div class="flex items-center mb-3" v-for="day in exceptions">
-                <input type="text" v-model="day.name" class="border p-1 px-2 mr-2 rounded w-24">
-                <input type="time" v-model="day.open" step="900" class="border p-1 px-2 mr-2 rounded w-24">
-                <input type="time" v-model="day.close" step="900" class="border p-1 px-2 mr-2 rounded w-24">
+                <input type="text" v-model="day.name" class="bg-grey-lighter input mx-3">
+                <input type="time" v-model="day.open" step="900" class="bg-grey-lighter input mx-3">
+                <input type="time" v-model="day.close" step="900" class="bg-grey-lighter input mx-3">
               </div>
             </tab>
         </tabs>
