@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="cloudinary_cloud_name" content="di0tb2zrz">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta property="og:url"                content="{{ $site->url() }}" />
         <meta property="og:type"               content="business.business" />
@@ -30,9 +31,11 @@
         <title>{{ $site->name }}</title>
     </head>
     <body>
+        
         <div id="root">
             <site-render init-theme="{{ studly_case($theme) }}" :content='@json($site->content)' :openhours='@json($site->openhours)'></site-render>
         </div>
+
         <script type="application/ld+json">
           @json($structuredData)
         </script>
