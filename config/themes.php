@@ -37,7 +37,7 @@ return [
 	        ]
 		],
 		'barber' => [
-			'name' => 'Barber',
+			'name' => 'Herre Frisør',
 			'slug' => 'barber',
 			'description' => 'Stilrent design til den klassiske herre frisør',
 			'preset_content' => [
