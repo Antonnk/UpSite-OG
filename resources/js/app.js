@@ -24,6 +24,7 @@ Vue.filter('striphtml', function (value) {
 
 Vue.component('cl-image', require('./components/CloudImage.vue'))
 Vue.component('site-builder', require('./site-builder/index.vue'))
+Vue.component('fetch-openhours', require('./site-builder/components/FetchOpenhours.vue'))
 
 const app = new Vue({
     el: '#root',

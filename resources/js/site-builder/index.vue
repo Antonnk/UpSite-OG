@@ -45,7 +45,7 @@
 				this.getMode; // call to evaluate mode before import
 				return () => ({
 					// The component to load (should be a Promise)
-					component: import(`./theme/${this.theme}${this.getMode}.vue`),
+					component: import(`./theme/${this.theme}${this.getMode}.vue` /* webpackChunkName: "asyncComponent" */),
 					// A component to use while the async component is loading
 					loading: LoadingComponent,
 					// A component to use if the load fails

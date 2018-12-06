@@ -28,6 +28,10 @@
 		@apply bg-grey-lightest text-blue;		
 	}
 
+	&.btn-yellow {
+		@apply bg-yellow text-blue;		
+	}
+
 	&.btn-sm {
 		@apply text-sm py-2 px-3;
 	}

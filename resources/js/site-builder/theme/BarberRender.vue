@@ -2,9 +2,9 @@
 	<main class="h-screen font-sans">
 		<header>
 			<cl-image 
-			class="bg-cover bg-no-repeat flex flex-col justify-between min-h-screen"
-			:public-id="content.intro_image" 
-			:options="{ crop: 'fill', width: 1000, height: 600, effect: 'colorize:70', color: '#1b1613' }">
+				class="bg-cover bg-no-repeat flex flex-col justify-between min-h-screen"
+				:public-id="content.intro_image" 
+				:options="{ crop: 'fill', width: 1000, height: 600, effect: 'colorize:70', color: '#1b1613' }">
 				<div class="flex flex-col flex-1 items-center justify-center px-6">
 					<h1 class="text-center text-orange text-6xl max-w-full break-words" v-text="content.name"></h1>
 					<h2 class="font-light text-2xl text-center text-orange word-break max-w-xs" v-text="content.title"></h2>
@@ -23,10 +23,19 @@
 					</div>
 					<div class="text-center p-4 w-full md:w-1/3">
 						<h2 class="text-orange">Åbningstider</h2>
-						<ul class="text-white font-semibold list-reset">
-							<li>Hverdage 09:00-17:00</li>
-							<li>Weekend 12:00-16:00</li>
-						</ul>
+						<fetch-openhours>
+							<b class="text-white mb-2" slot-scope="{ today, nextOpenDay }">
+								<span v-if="today.openNow">
+									Idag åben til {{ today.close }}
+								</span>
+								<span v-else-if="nextOpenDay">
+									{{nextOpenDay.name}} åben <b>{{ nextOpenDay.open }} - {{ nextOpenDay.close }}</b>
+								</span>
+								<span v-else>
+									Lukket
+								</span>
+							</b>
+						</fetch-openhours>
 					</div>
 				</div>
 			</cl-image>

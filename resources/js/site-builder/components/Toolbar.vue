@@ -1,6 +1,6 @@
 <template>
   <div id="toolbar" class="p-3 text-sm text-white w-full z-50 border-b-2 border-yellow">
-    <div class="px-16 flex items-center justify-between mx-auto">
+    <div class="px-0 flex flex-col items-center justify-between mx-auto md:px-16 md:flex-row">
       <div>
         <b class="text-base mb-1 inline-block">
           <svg class="w-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/></svg>
@@ -8,16 +8,16 @@
         </b>
       </div>  
       <div class="flex">
-        <button class="border border-blue-lightest btn btn-sm mr-2" @click="toggleMode">
-          <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/></svg>
+        <button class="border border-blue-lightest btn btn-sm items-center mr-2" @click="toggleMode">
+          <svg class="hidden fill-current mr-2 text-white w-4 md:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
           Preview mode
         </button>
-        <button class="border border-blue-lightest btn btn-sm mr-2" @click="toggleOpenhoursModalVisable">
-          <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"/></svg>
+        <button class="border border-blue-lightest btn btn-sm items-center mr-2" @click="toggleOpenhoursModalVisable">
+          <svg class="hidden fill-current mr-2 text-white w-4 md:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"/></svg>
           Angiv Åbningstider
         </button>
-        <button class="border border-blue-lightest btn btn-sm mr-2" @click="storeContent">
-          <svg class="fill-current mr-1 text-white w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 2C0 .9.9 0 2 0h14l4 4v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5 0v6h10V2H5zm6 1h3v4h-3V3z"/></svg>
+        <button class="border border-blue-lightest btn btn-sm items-center mr-2" @click="storeContent">
+          <svg class="hidden fill-current mr-2 text-white w-4 md:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 2C0 .9.9 0 2 0h14l4 4v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5 0v6h10V2H5zm6 1h3v4h-3V3z"/></svg>
           Gem Hjemmeside
         </button>
       </div>

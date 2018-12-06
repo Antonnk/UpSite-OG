@@ -32,9 +32,9 @@ $factory->define(App\Theme::class, function (Faker $faker) {
                 'email' => 'mail@dinemail.dk'
             ],
             'social' => [
-                'instagram' => '@instagramBrugernavn',
-                'facebook' => '/facebookLink',
-                'twitter' => '@twitterBrugernavn',
+                'instagram' => 'instagramBrugernavn',
+                'facebook' => 'facebookLink',
+                'twitter' => 'twitterBrugernavn',
                 'snapchat' => 'SnapchatBrugernavn'
             ]
         ]
