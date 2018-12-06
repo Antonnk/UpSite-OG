@@ -96,12 +96,17 @@ class SiteController extends Controller
      */
     public function show($slug)
     {
-        $site = Site::where('slug', $slug)->first();
-        return view('render', [
-            'theme' => $site->theme->slug,
-            'site' => $site,
-            'structuredData' => $this->buildStructuredData($site)
-        ]);
+        try {
+            $site = Site::where('slug', $slug)->first();
+            
+            return view('render', [
+                'theme' => $site->theme->slug,
+                'site' => $site,
+                'structuredData' => $this->buildStructuredData($site)
+            ]);
+        } catch (\Exception $e) {
+            abort(404);
+        }
     }
 
     public function claim($slug)
@@ -207,6 +212,7 @@ class SiteController extends Controller
             if($day['open'] == null) return false;
             return true;
         });
+        
         $openingHoursSpecification = array_map(function($day) {
             return [
                 "@type" => "OpeningHoursSpecification",

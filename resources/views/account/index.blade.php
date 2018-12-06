@@ -45,7 +45,7 @@
 	</div>
 	@else
 	<div class="flex flex-col items-center justify-center">
-		<svg class="opacity-50 fill-current mb-3 text-blue w-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM6.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm7 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.16 6H4.34a6 6 0 0 1 11.32 0z"/></svg>
+		<span class="text-5xl">😯</span>
 		<b class="text-xl opacity-75 mb-4">Du har ikke nogen side</b>
 		<a class="btn" href="{{ route('build.overview') }}">Opret en side</a>
 	</div>

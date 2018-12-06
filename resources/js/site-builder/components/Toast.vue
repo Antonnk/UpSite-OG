@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="fixed m-8 pin-b pin-r z-50" v-if="status.length > 0">
       <transition-group name="fade">
-        <div v-for="(item, index) in status" :key="`item${index}`" :class="item.type" class="py-3 px-6 my-1 bg-white">
+        <div v-for="(item, index) in status" :key="`item${index}`" :class="item.type" class="py-3 px-8 my-1 bg-yellow text-blue">
             <h2>{{ item.msg }}</h2>
         </div>
       </transition-group>

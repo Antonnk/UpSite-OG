@@ -19,13 +19,17 @@ class SiteTest extends TestCase
      */
     public function test_a_guest_can_create_a_site()
     {
+    	$theme = factory(\App\Theme::class)->create(['slug' => 'barber']);
+
 		$response = $this->json('POST', '/sites', [
 			'name' => 'The Cake Shop',
+			'theme' => $theme->slug,
 			'content' => [
 				'intro_text' => 'Hello and welcome'
 			],
 			'openhours' => []
 		]);
+
 
 		$this->assertDatabaseHas('sites', [
 	        'name' => 'The Cake Shop'
@@ -42,9 +46,11 @@ class SiteTest extends TestCase
      */
     public function test_a_site_can_be_viewed()
     {
-		$site = factory(\App\Site::class)->create();
+    	$theme = factory(\App\Theme::class)->create(['slug' => 'barber']);
+		$site = factory(\App\Site::class)->create(['theme_id' => $theme->id]);
 
 		$response = $this->get($site->url());
+
 		
 		$response->assertStatus(200)->assertSee($site->name);
     }
@@ -97,13 +103,17 @@ class SiteTest extends TestCase
      */
     public function test_a_site_can_have_open_hours()
     {
+    	$theme = factory(\App\Theme::class)->create(['slug' => 'barber']);
 		$site = factory(\App\Site::class)->make(['user_id' => null]);
 		$openhours = [
-			'monday' => ['09:00-18:00'],
+			'weekdays' => [
+				['name' => 'monday', 'open' => '09:00', 'close' => '18:00']
+			],
 		];
 	
 		$response = $this->json('POST','/sites', [
 			'name' => $site->name,
+			'theme' => $theme->slug,
 			'content' => $site->content,
 			'openhours' => $openhours
 		]);
@@ -122,7 +132,8 @@ class SiteTest extends TestCase
      */
     public function test_a_site_is_served_from_cache()
     {
-		$site = factory(\App\Site::class)->create();
+    	$theme = factory(\App\Theme::class)->create(['slug' => 'barber']);
+		$site = factory(\App\Site::class)->create(['theme_id' => $theme->id]);
 
 		// visit once to trigger cache
 		$this->get('http://'.$site->slug.'.'.env('APP_DOMAIN'));
@@ -133,39 +144,22 @@ class SiteTest extends TestCase
     }
 
     /**
-     * Test a sites openhours can be checked if site is open
-     *
-     * @return void
-     */
-    public function test_a_sites_openhours_can_be_checked()
-    {
-		$site = factory(\App\Site::class)->create([
-			'openhours' => [
-				'monday' => ['09:00-12:00', '13:00-18:00']
-			]
-		]);
-		
-		$this->assertTrue($site->getOpenhours()->isOpenOn('monday'));
-    }
-
-    /**
      * Test site a owned site can be updated by owner
      *
      * @return void
      */
     public function test_a_owned_site_can_updated_by_owner()
     {
-		$site = factory(\App\Site::class)->create();
+    	$theme = factory(\App\Theme::class)->create(['slug' => 'barber']);
+		$site = factory(\App\Site::class)->create(['theme_id' => $theme->id]);
 
 		// visit once to trigger cache
 		$beforeUpdate = $this->get('http://'.$site->slug.'.'.env('APP_DOMAIN'));
 
-		$response = $this->json('PUT', '/sites/'.$site->slug, [
+		$response = $this->actingAs($site->owner)->json('PUT', '/sites/'.$site->slug, [
 			'name' => 'New Name',
-			'content' => [
-				'intro' => 'new-content'
-			],
-			'openhours' => []
+			'content' => $site->content,
+			'openhours' => $site->openhours
 		]);
 
 		// assert site was updated

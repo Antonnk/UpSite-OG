@@ -22,6 +22,7 @@
 @tailwind components;
 
 .btn {
+	transition: transform .3s ease;
 	@apply font-bold inline-flex no-underline px-6 py-4 rounded-full text-white bg-blue cursor-pointer;
 
 	&.btn-white {
@@ -32,8 +33,16 @@
 		@apply bg-yellow text-blue;		
 	}
 
+	&.btn-lg {
+		@apply px-8 py-6 text-lg
+	}
+
 	&.btn-sm {
 		@apply text-sm py-2 px-3;
+	}
+
+	&:hover {
+		transform: translateY(-1px);
 	}
 }
 

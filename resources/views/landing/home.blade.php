@@ -12,15 +12,18 @@
 		    </div>
 		</div>
 		<div>
-			<div class="container mx-auto md:px-0 px-6">
-				<div class="text-blue z-10">
+			<div class="container relative flex flex-col mx-auto px-6 md:px-0 md:flex-row">
+				<div class="text-blue z-10 w-full md:w-1/2 sm:w-2/3 ">
 				    <h1 class="mb-4 text-5xl">Giv din virksomhed<br/> en digital stemme</h1>
 				    <p class="font-semibold leading-normal">
 				        Opret en synlig & brugervenlig hjemmeside på under<br> 
 				        5 minutter! <i>Ingen teknisk viden påkrævet.</i> 
 				    </p>
-				    <a class="btn my-12" href="{{ route('build.overview') }}">Byg din side</a>
+				    <a class="btn btn-lg my-12" href="{{ route('build.overview') }}">Byg din side</a>
 			    </div>
+			    <div class="w-full md:w-1/2 sm:w-1/3">
+					@include('landing.home-illu')
+				</div>
 			</div>
 		</div>
 	</main>
