@@ -12,7 +12,7 @@
 		    </div>
 		</div>
 		<div>
-			<div class="container relative flex flex-col mx-auto px-6 md:px-0 md:flex-row">
+			<div class="container relative flex flex-col mx-auto px-6 md:px-0 sm:flex-row">
 				<div class="text-blue z-10 w-full md:w-1/2 sm:w-2/3 ">
 				    <h1 class="mb-4 text-5xl">Giv din virksomhed<br/> en digital stemme</h1>
 				    <p class="font-semibold leading-normal">

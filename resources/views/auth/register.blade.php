@@ -3,9 +3,9 @@
 @section('title', 'Stærkt!')
 
 @section('content')
-    <div class="flex items-start justify-center w-4/5 mx-auto my-12">
+    <div class="flex items-start justify-center flex-col w-full mx-auto my-12 md:flex-row md:w-4/5">
         @if($site)
-            <div class="text-blue flex-col inline-flex p-8 py-12 w-1/2">
+            <div class="text-blue flex-col inline-flex p-8 py-12 w-full md:w-1/2">
                 <h2 class="font-bold mb-6 text-xl">@lang('register.with_site_1')</h2>
                 <div class="border border-blue flex">
                     <div class="w-64">
@@ -25,7 +25,7 @@
             </div>
         @endif
 
-        <div class="bg-blue text-white flex-col inline-flex p-8 py-12 w-1/2">
+        <div class="bg-blue text-white flex-col inline-flex p-8 py-12 w-full md:w-1/2">
         
             <h2 class="font-bold mb-6 text-lg">@lang('register.with_site_2')</h2>
 

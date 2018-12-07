@@ -14,9 +14,9 @@
 						<li>Hjemmeside</li>
 						<li>Twitter links</li>
 						<li>Facebook links </li>
-						<li>Grundlægende SEO</li>
+						<li>Grundlæggende SEO</li>
 						<li>Google local Business</li>
-						<li>Grundlægende analyse værktøjer</li>
+						<li>Grundlæggende analyse værktøjer</li>
 					</ul>
 					<div class="flex justify-center mt-4">
 						<a class="btn" href="{{ route('register') }}">Opret konto</a>
