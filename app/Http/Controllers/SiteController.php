@@ -17,6 +17,11 @@ class SiteController extends Controller
      */
     public function create($theme)
     {
+        if(Auth::check()) {
+            return redirect()->route('account.index');
+        }
+
+
         try {
             $theme = \App\Theme::where('slug', $theme)->firstOrFail();
         } catch (Exception $e) {
